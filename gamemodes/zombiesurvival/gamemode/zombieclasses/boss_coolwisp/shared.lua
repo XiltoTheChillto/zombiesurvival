@@ -9,7 +9,7 @@ CLASS.Boss = true
 
 CLASS.SWEP = "weapon_zs_coolwisp"
 
-CLASS.Health = 900
+CLASS.Health = 5000
 
 CLASS.Points = 20
 

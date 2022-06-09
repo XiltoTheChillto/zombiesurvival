@@ -53,8 +53,8 @@ SWEP.CSMuzzleFlashes = false
 
 SWEP.ReloadSound = Sound("Weapon_SMG1.Reload")
 SWEP.Primary.Sound = Sound("Weapon_Hurricane.Single")
-SWEP.Primary.Damage = 14.5
-SWEP.Primary.NumShots = 1
+SWEP.Primary.Damage = 20
+SWEP.Primary.NumShots = 2
 SWEP.Primary.Delay = 0.09
 
 SWEP.Primary.ClipSize = 40

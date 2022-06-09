@@ -172,7 +172,7 @@ local supweles = {
 
 -- Health Trinkets
 trinket, trinketwep = GM:AddTrinket("Health Package", "vitpackagei", false, hpveles, hpweles, 2, "+10 maximum health\n+5% healing received")
-GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 10)
+GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 11)
 GM:AddSkillModifier(trinket, SKILLMOD_HEALING_RECEIVED, 0.05)
 trinketwep.PermitDismantle = true
 
@@ -489,4 +489,55 @@ trinketwep.PermitDismantle = true
 trinket, trinketwep = GM:AddTrinket("Chemistry Set", "chemistry", false, hpveles, hpweles, nil, "+6% medic tool effectiveness\n+12% cloud bomb time")
 GM:AddSkillModifier(trinket, SKILLMOD_MEDKIT_EFFECTIVENESS_MUL, 0.06)
 GM:AddSkillModifier(trinket, SKILLMOD_CLOUD_TIME, 0.12)
+trinketwep.PermitDismantle = true
+
+-- CUSTOM
+
+trinket, trinketwep = GM:AddTrinket("Health Package3", "vitpackageil", false, hpveles, hpweles, dr, "+10 maximum health\n+5% healing received")
+GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 50)
+GM:AddSkillModifier(trinket, SKILLMOD_HEALING_RECEIVED, 0.05)
+trinketwep.PermitDismantle = true
+
+
+trinket, trinketwep = GM:AddTrinket("Health", "hpbon", false, hpveles, hpweles, nil, "+25 maximum health")
+GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 25)
+trinketwep.PermitDismantle = true
+
+
+trinket, trinketwep = GM:AddTrinket("Swiftness", "swift", false, hpveles, hpweles, nil, "+30 movement speed")
+GM:AddSkillModifier(trinket, SKILLMOD_SPEED, 30)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Resupply boost", "resupboost", false, hpveles, hpweles, nil, "-30% Resupply delay")
+GM:AddSkillModifier(trinket, SKILLMOD_RESUPPLY_DELAY_MUL, -0.30)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Repair Boost", "repboost", false, hpveles, hpweles, nil, "+100% Repair rate\n-45% Hammer delay")
+GM:AddSkillModifier(trinket, SKILLMOD_REPAIRRATE_MUL, 1)
+GM:AddSkillModifier(trinket, SKILLMOD_HAMMER_SWING_DELAY_MUL, -0.45)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Tank", "tank", false, hpveles, hpweles, nil, "+250 Health")
+GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 250)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Reload speed", "reloadspeed", false, hpveles, hpweles, nil, "+35% reload speed")
+GM:AddSkillModifier(trinket, SKILLMOD_RELOADSPEED_MUL, 0.35)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Weapon draw speed", "wepdrawspeed", false, hpveles, hpweles, nil, "+40% Weapon draw speed")
+GM:AddSkillModifier(trinket, SKILLMOD_DEPLOYSPEED_MUL, 0.4)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Doctor", "doc", false, hpveles, hpweles, nil, "+50% healing effectivness")
+GM:AddSkillModifier(trinket, SKILLMOD_MEDKIT_EFFECTIVENESS_MUL, 0.5)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Melee delay", "medlay", false, hpveles, hpweles, nil, "-15% Melee delay")
+GM:AddSkillModifier(trinket, SKILLMOD_MELEE_SWING_DELAY_MUL, -0.15)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Juggernaut", "jugnaut", false, hpveles, hpweles, nil, "+400 Health\n+15% Melee damage resistance")
+GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 408)
+GM:AddSkillModifier(trinket, SKILLMOD_MELEE_DAMAGE_TAKEN_MUL, -0.15)
 trinketwep.PermitDismantle = true

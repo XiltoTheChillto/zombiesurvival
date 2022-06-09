@@ -107,23 +107,23 @@ GM.MaxArmDamage = 3
 GM.UtilityKey = IN_SPEED
 GM.MenuKey = IN_WALK -- I would use the spawn menu but it has no IN_ key assignment.
 
-GM.ArsenalCrateCommission = 0.04
+GM.ArsenalCrateCommission = 0.08
 
 GM.BaseDeploySpeed = 1 -- Put this back to 1 to increase the value of it
 
-GM.ExtraHealthPerExtraNail = 75
-GM.MaxNails = 4
+GM.ExtraHealthPerExtraNail = 500
+GM.MaxNails = 5
 
 -- Moved from options to globals because the game is now balanced around it being static. The gamemode will BREAK if this is not 6!!
-GM.NumberOfWaves = 6
+GM.NumberOfWaves = 16
 
 GM.PulsePointsMultiplier = 1.25
 
 -- The amount of damage you need to inflict to a zombie type to get a point
-GM.HumanoidZombiePointRatio = 45
-GM.PoisonZombiePointRatio = 60 -- Has an enormous head hitbox
-GM.HeadcrabZombiePointRatio = 30
-GM.NoHeadboxZombiePointRatio = 38
+GM.HumanoidZombiePointRatio = 40
+GM.PoisonZombiePointRatio = 50 -- Has an enormous head hitbox
+GM.HeadcrabZombiePointRatio = 27.5
+GM.NoHeadboxZombiePointRatio = 32.75
 GM.TorsoZombiePointRatio = 42
 GM.LegsZombiePointRatio = 37.5
 GM.SkeletonPointRatio = GM.HumanoidZombiePointRatio/3
@@ -146,13 +146,13 @@ ZE_KNOCKBACKSCALE = 0.1
 
 MASK_HOVER = bit.bor(CONTENTS_SOLID, CONTENTS_WATER, CONTENTS_SLIME, CONTENTS_GRATE, CONTENTS_WINDOW, CONTENTS_HITBOX)
 
-GM.BarricadeHealthMin = 50
-GM.BarricadeHealthMax = 1100 * 0.85
-GM.BarricadeHealthMassFactor = 3 * 0.85
-GM.BarricadeHealthVolumeFactor = 4 * 0.85
-GM.BarricadeRepairCapacity = 1.25
+GM.BarricadeHealthMin = 4000
+GM.BarricadeHealthMax = 20000
+GM.BarricadeHealthMassFactor = 10 * 1.75
+GM.BarricadeHealthVolumeFactor = 16 * 1.75
+GM.BarricadeRepairCapacity = 2.5
 
-GM.BossZombiePlayersRequired = 8
+GM.BossZombiePlayersRequired = 2
 
 GM.HumanGibs = {
 Model("models/gibs/HGIBS.mdl"),

@@ -7,7 +7,7 @@ CLASS.BetterVersion = "Barbed Headcrab"
 
 CLASS.Model = Model("models/headcrabblack.mdl")
 
-CLASS.Wave = 3 / 6
+CLASS.Wave = 3 / 16
 CLASS.Threshold = 0.6
 
 CLASS.SWEP = "weapon_zs_poisonheadcrab"

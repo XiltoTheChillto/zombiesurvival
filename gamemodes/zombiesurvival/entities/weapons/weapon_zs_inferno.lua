@@ -25,11 +25,11 @@ SWEP.WorldModel = "models/weapons/w_rif_aug.mdl"
 SWEP.UseHands = true
 
 SWEP.Primary.Sound = Sound("Weapon_AUG.Single")
-SWEP.Primary.Damage = 23
+SWEP.Primary.Damage = 64
 SWEP.Primary.NumShots = 1
-SWEP.Primary.Delay = 0.095
+SWEP.Primary.Delay = 0.075
 
-SWEP.Primary.ClipSize = 40
+SWEP.Primary.ClipSize = 35
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "ar2"
 GAMEMODE:SetupDefaultClip(SWEP.Primary)
@@ -43,7 +43,7 @@ SWEP.ConeMin = 1
 SWEP.WalkSpeed = SPEED_SLOW
 
 SWEP.Tier = 4
-SWEP.MaxStock = 3
+SWEP.MaxStock = 6
 
 SWEP.IronSightsAng = Vector(-1, -1, 0)
 SWEP.IronSightsPos = Vector(-3, 4, 3)

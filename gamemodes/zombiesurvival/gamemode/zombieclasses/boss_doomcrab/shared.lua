@@ -15,7 +15,7 @@ CLASS.Model = Model("models/headcrabclassic.mdl")
 
 CLASS.SWEP = "weapon_zs_doomcrab"
 
-CLASS.Health = 2200
+CLASS.Health = 20000
 CLASS.Speed = 210
 --CLASS.JumpPower = 160
 

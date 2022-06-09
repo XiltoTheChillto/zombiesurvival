@@ -7,10 +7,10 @@ CLASS.Description = "description_lacerator"
 CLASS.Help = "controls_lacerator"
 
 CLASS.Model = Model("models/player/zombie_lacerator2.mdl")
+CLASS.BetterVersion = "Strong Lacerator"
+CLASS.Wave = 4 / 16
 
-CLASS.Wave = 4 / 6
-
-CLASS.Health = 225
+CLASS.Health = 385
 CLASS.Speed = 270
 CLASS.SWEP = "weapon_zs_lacerator"
 

@@ -720,7 +720,7 @@ function GM:OpenArsenalMenu()
 			tabpane.Grids = {}
 			tabpane.Buttons = {}
 
-			local usecats = catid == ITEMCAT_GUNS or catid == ITEMCAT_MELEE or catid == ITEMCAT_TRINKETS
+			local usecats = catid == ITEMCAT_GUNS or catid == ITEMCAT_MELEE or catid == ITEMCAT_TRINKETS or catid == ITEMCAT_OPGUNS
 			local trinkets = catid == ITEMCAT_TRINKETS
 			local offset = 64 * screenscale
 
@@ -742,16 +742,17 @@ function GM:OpenArsenalMenu()
 			local subcats = GAMEMODE.ItemSubCategories
 			if usecats then
 				local ind, tbn = 1
-				for i = ind, (trinkets and #subcats or 5) do
-					local ispacer = trinkets and ((i-1) % 3)+1 or i
+				for i = ind, (trinkets and #subcats or 7) do
+local ispacer = trinkets and ((i-1) % 3)+1 or i
 					local start = i == (catid == ITEMCAT_GUNS and 2 or ind)
-
 					tbn = EasyButton(tabpane, trinkets and subcats[i] or ("Tier " .. i), 2, 8)
 					tbn:SetFont(trinkets and "ZSHUDFontSmallest" or "ZSHUDFontSmall")
 					tbn:SetAlpha(start and 255 or 70)
 					tbn:AlignRight((trinkets and -35 or -15) * screenscale -
-						(ispacer - ind) * (ind == 1 and (trinkets and 190 or 110) or 145) * screenscale
+						(ispacer - ind) * (ind == 1 and (trinkets and 145 or 75) or 100) * screenscale
 					)
+					
+					
 					tbn:AlignTop(trinkets and i <= 3 and 0 or trinkets and 28 or 16)
 					tbn:SetContentAlignment(5)
 					tbn:SizeToContents()
@@ -760,6 +761,7 @@ function GM:OpenArsenalMenu()
 							v:SetVisible(k == i)
 							tabpane.Buttons[k]:SetAlpha(k == i and 255 or 70)
 						end
+
 					end
 
 					tabpane.Grids[i] = mkgrid()
@@ -769,6 +771,7 @@ function GM:OpenArsenalMenu()
 			else
 				tabpane.Grid = mkgrid()
 			end
+			
 
 			local sheet = propertysheet:AddSheet(catname, tabpane, GAMEMODE.ItemCategoryIcons[catid], false, false)
 			sheet.Panel:SetPos(0, tabhei + 2)

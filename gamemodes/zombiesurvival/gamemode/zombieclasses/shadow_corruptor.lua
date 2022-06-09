@@ -1,13 +1,13 @@
-CLASS.Hidden = true
-CLASS.Disabled = true
-CLASS.Unlocked = true
+CLASS.Hidden = false
+CLASS.Disabled = false
+CLASS.Unlocked = false
 
 CLASS.Name = "Shadow Corruptor"
 CLASS.TranslationName = "class_shadow_corruptor"
 CLASS.Description = "description_shadow_corruptor"
 CLASS.Help = "controls_shadow_corruptor"
-
-CLASS.Wave = 6 / 6
+CLASS.Hidden = true
+CLASS.Wave = 6 / 16
 
 CLASS.Health = 100
 CLASS.Speed = 150

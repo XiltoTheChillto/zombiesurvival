@@ -83,7 +83,7 @@ net.Receive("zs_skills_reset", function(length, pl)
 	pl:SkillsReset()
 
 	net.Start("zs_skills_nextreset")
-		net.WriteUInt(pl.NextSkillReset - time, 32)
+		net.WriteUInt(pl.NextSkillReset - time, 0)
 	net.Send(pl)
 end)
 

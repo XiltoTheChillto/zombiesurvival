@@ -9,7 +9,7 @@ SWEP.UseHands = true
 
 SWEP.HoldType = "melee2"
 
-SWEP.MeleeDamage = 142
+SWEP.MeleeDamage = 190
 SWEP.MeleeRange = 75
 SWEP.MeleeSize = 3
 SWEP.MeleeKnockBack = 240
@@ -17,8 +17,8 @@ SWEP.MeleeKnockBack = 240
 SWEP.MeleeDamageSecondaryMul = 1.2273
 SWEP.MeleeKnockBackSecondaryMul = 1.25
 
-SWEP.Primary.Delay = 1.4
-SWEP.Secondary.Delay = SWEP.Primary.Delay * 1.75
+SWEP.Primary.Delay = 1.3
+SWEP.Secondary.Delay = SWEP.Primary.Delay * 1.35
 
 SWEP.WalkSpeed = SPEED_SLOWER
 
@@ -29,7 +29,7 @@ SWEP.SwingOffset = Vector(0, -30, 0)
 SWEP.SwingTime = 0.62
 SWEP.SwingHoldType = "melee"
 
-SWEP.SwingTimeSecondary = 0.85
+SWEP.SwingTimeSecondary = 0.75
 
 SWEP.Tier = 5
 SWEP.MaxStock = 2

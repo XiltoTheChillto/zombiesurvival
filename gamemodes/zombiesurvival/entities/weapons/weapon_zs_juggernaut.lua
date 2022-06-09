@@ -25,9 +25,9 @@ SWEP.WorldModel = "models/weapons/w_mach_m249para.mdl"
 SWEP.UseHands = true
 
 SWEP.Primary.Sound = Sound("weapons/m249/m249-1.wav")
-SWEP.Primary.Damage = 20
+SWEP.Primary.Damage = 35
 SWEP.Primary.NumShots = 1
-SWEP.Primary.Delay = 0.08
+SWEP.Primary.Delay = 0.07
 
 SWEP.Primary.ClipSize = 90
 SWEP.Primary.Automatic = true

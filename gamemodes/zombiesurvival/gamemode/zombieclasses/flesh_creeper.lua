@@ -8,7 +8,7 @@ CLASS.Hidden = true
 CLASS.Unlocked = true
 CLASS.NotRandomStart = true
 
-CLASS.Health = 175
+CLASS.Health = 200
 CLASS.SWEP = "weapon_zs_fleshcreeper"
 CLASS.Model = Model("models/antlion.mdl")
 CLASS.Speed = 160

@@ -5,11 +5,11 @@ CLASS.TranslationName = "class_tormented_wraith"
 CLASS.Description = "description_tormented_wraith"
 CLASS.Help = "controls_tormented_wraith"
 
-CLASS.Health = 150
+CLASS.Health = 200
 CLASS.Points = CLASS.Health/GM.NoHeadboxZombiePointRatio
 CLASS.Speed = 150
 
-CLASS.Wave = 2 / 6
+CLASS.Wave = 2 / 16
 
 CLASS.SWEP = "weapon_zs_tormentedwraith"
 

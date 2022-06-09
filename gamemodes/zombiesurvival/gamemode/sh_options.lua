@@ -25,12 +25,16 @@ GM.CartFile = "zscarts.txt"
 GM.SkillLoadoutsFile = "zsskloadouts.txt"
 
 ITEMCAT_GUNS = 1
-ITEMCAT_AMMO = 2
-ITEMCAT_MELEE = 3
-ITEMCAT_TOOLS = 4
-ITEMCAT_DEPLOYABLES = 5
-ITEMCAT_TRINKETS = 6
-ITEMCAT_OTHER = 7
+ITEMCAT_OPGUNS = 2
+ITEMCAT_AMMO = 3
+ITEMCAT_MELEE = 4
+ITEMCAT_TOOLS = 5
+ITEMCAT_DEPLOYABLES = 6
+ITEMCAT_TRINKETS = 7
+ITEMCAT_OTHER = 8
+ITEMCAT_CUSTOMTRINKETS = 9
+ITEMCAT_JUNK = 10
+
 
 ITEMSUBCAT_TRINKETS_DEFENSIVE = 1
 ITEMSUBCAT_TRINKETS_OFFENSIVE = 2
@@ -41,12 +45,15 @@ ITEMSUBCAT_TRINKETS_SPECIAL = 6
 
 GM.ItemCategories = {
 	[ITEMCAT_GUNS] = "Guns",
+	[ITEMCAT_OPGUNS] = "OP Guns",
 	[ITEMCAT_AMMO] = "Ammunition",
 	[ITEMCAT_MELEE] = "Melee",
 	[ITEMCAT_TOOLS] = "Tools",
 	[ITEMCAT_DEPLOYABLES] = "Deployables",
+	[ITEMCAT_JUNK] = "Junk packs",
 	[ITEMCAT_TRINKETS] = "Trinkets",
-	[ITEMCAT_OTHER] = "Other"
+	[ITEMCAT_OTHER] = "Other",
+	[ITEMCAT_CUSTOMTRINKETS] = "Custom trinkets"	
 }
 
 GM.ItemSubCategories = {
@@ -94,13 +101,13 @@ end
 
 -- How much ammo is considered one 'clip' of ammo? For use with setting up weapon defaults. Works directly with zs_survivalclips
 GM.AmmoCache = {}
-GM.AmmoCache["ar2"]							= 32		-- Assault rifles.
+GM.AmmoCache["ar2"]							= 72		-- Assault rifles.
 GM.AmmoCache["alyxgun"]						= 24		-- Not used.
-GM.AmmoCache["pistol"]						= 14		-- Pistols.
-GM.AmmoCache["smg1"]						= 36		-- SMG's and some rifles.
-GM.AmmoCache["357"]							= 8			-- Rifles, especially of the sniper variety.
-GM.AmmoCache["xbowbolt"]					= 8			-- Crossbows
-GM.AmmoCache["buckshot"]					= 12		-- Shotguns
+GM.AmmoCache["pistol"]						= 36		-- Pistols.
+GM.AmmoCache["smg1"]						= 90		-- SMG's and some rifles.
+GM.AmmoCache["357"]							= 20		-- Rifles, especially of the sniper variety.
+GM.AmmoCache["xbowbolt"]					= 20			-- Crossbows
+GM.AmmoCache["buckshot"]					= 24		-- Shotguns
 GM.AmmoCache["ar2altfire"]					= 1			-- Not used.
 GM.AmmoCache["slam"]						= 1			-- Force Field Emitters.
 GM.AmmoCache["rpg_round"]					= 1			-- Not used. Rockets?
@@ -110,8 +117,8 @@ GM.AmmoCache["sniperpenetratedround"]		= 1			-- Remote Det pack.
 GM.AmmoCache["grenade"]						= 1			-- Grenades.
 GM.AmmoCache["thumper"]						= 1			-- Gun turret.
 GM.AmmoCache["gravity"]						= 1			-- Unused.
-GM.AmmoCache["battery"]						= 23		-- Used with the Medical Kit.
-GM.AmmoCache["gaussenergy"]					= 2			-- Nails used with the Carpenter's Hammer.
+GM.AmmoCache["battery"]						= 35		-- Used with the Medical Kit.
+GM.AmmoCache["gaussenergy"]					= 4			-- Nails used with the Carpenter's Hammer.
 GM.AmmoCache["combinecannon"]				= 1			-- Not used.
 GM.AmmoCache["airboatgun"]					= 1			-- Arsenal crates.
 GM.AmmoCache["striderminigun"]				= 1			-- Message beacons.
@@ -121,12 +128,12 @@ GM.AmmoCache["manhack"]						= 1
 GM.AmmoCache["repairfield"]					= 1
 GM.AmmoCache["zapper"]						= 1
 GM.AmmoCache["pulse"]						= 30
-GM.AmmoCache["impactmine"]					= 3
+GM.AmmoCache["impactmine"]					= 6
 GM.AmmoCache["chemical"]					= 20
 GM.AmmoCache["flashbomb"]					= 1
 GM.AmmoCache["turret_buckshot"]				= 1
 GM.AmmoCache["turret_assault"]				= 1
-GM.AmmoCache["scrap"]						= 3
+GM.AmmoCache["scrap"]						= 16
 
 GM.AmmoResupply = table.ToAssoc({"ar2", "pistol", "smg1", "357", "xbowbolt", "buckshot", "battery", "pulse", "impactmine", "chemical", "gaussenergy", "scrap"})
 
@@ -134,71 +141,71 @@ GM.AmmoResupply = table.ToAssoc({"ar2", "pistol", "smg1", "357", "xbowbolt", "bu
 -- Worth --
 -----------
 
-GM:AddStartingItem("pshtr",				ITEMCAT_GUNS,			45,				"weapon_zs_peashooter")
-GM:AddStartingItem("btlax",				ITEMCAT_GUNS,			45,				"weapon_zs_battleaxe")
-GM:AddStartingItem("owens",				ITEMCAT_GUNS,			45,				"weapon_zs_owens")
-GM:AddStartingItem("blstr",				ITEMCAT_GUNS,			45,				"weapon_zs_blaster")
-GM:AddStartingItem("tossr",				ITEMCAT_GUNS,			45,				"weapon_zs_tosser")
-GM:AddStartingItem("stbbr",				ITEMCAT_GUNS,			45,				"weapon_zs_stubber")
-GM:AddStartingItem("crklr",				ITEMCAT_GUNS,			45,				"weapon_zs_crackler")
-GM:AddStartingItem("sling",				ITEMCAT_GUNS,			45,				"weapon_zs_slinger")
-GM:AddStartingItem("z9000",				ITEMCAT_GUNS,			45,				"weapon_zs_z9000")
-GM:AddStartingItem("minelayer",			ITEMCAT_GUNS,			60,				"weapon_zs_minelayer")
+GM:AddStartingItem("pshtr",				ITEMCAT_GUNS,			25,				"weapon_zs_peashooter")
+GM:AddStartingItem("btlax",				ITEMCAT_GUNS,			25,				"weapon_zs_battleaxe")
+GM:AddStartingItem("owens",				ITEMCAT_GUNS,			25,				"weapon_zs_owens")
+GM:AddStartingItem("blstr",				ITEMCAT_GUNS,			25,				"weapon_zs_blaster")
+GM:AddStartingItem("tossr",				ITEMCAT_GUNS,			25,				"weapon_zs_tosser")
+GM:AddStartingItem("stbbr",				ITEMCAT_GUNS,			25,				"weapon_zs_stubber")
+GM:AddStartingItem("crklr",				ITEMCAT_GUNS,			25,				"weapon_zs_crackler")
+GM:AddStartingItem("sling",				ITEMCAT_GUNS,			25,				"weapon_zs_slinger")
+GM:AddStartingItem("z9000",				ITEMCAT_GUNS,			25,				"weapon_zs_z9000")
+GM:AddStartingItem("minelayer",			ITEMCAT_GUNS,			35,				"weapon_zs_minelayer")
 
-GM:AddStartingItem("2pcp",				ITEMCAT_AMMO,			15,				nil,			"28 pistol ammo",				nil,		"ammo_pistol",			function(pl) pl:GiveAmmo(28, "pistol", true) end)
-GM:AddStartingItem("3pcp",				ITEMCAT_AMMO,			20,				nil,			"42 pistol ammo",				nil,		"ammo_pistol",			function(pl) pl:GiveAmmo(42, "pistol", true) end)
-GM:AddStartingItem("2sgcp",				ITEMCAT_AMMO,			15,				nil,			"24 shotgun ammo",				nil,		"ammo_shotgun",			function(pl) pl:GiveAmmo(24, "buckshot", true) end)
-GM:AddStartingItem("3sgcp",				ITEMCAT_AMMO,			20,				nil,			"36 shotgun ammo",				nil,		"ammo_shotgun",			function(pl) pl:GiveAmmo(36, "buckshot", true) end)
-GM:AddStartingItem("2smgcp",			ITEMCAT_AMMO,			15,				nil,			"72 SMG ammo",					nil,		"ammo_smg",				function(pl) pl:GiveAmmo(72, "smg1", true) end)
-GM:AddStartingItem("3smgcp",			ITEMCAT_AMMO,			20,				nil,			"108 SMG ammo",					nil,		"ammo_smg",				function(pl) pl:GiveAmmo(108, "smg1", true) end)
-GM:AddStartingItem("2arcp",				ITEMCAT_AMMO,			15,				nil,			"64 assault rifle ammo",		nil,		"ammo_assault",			function(pl) pl:GiveAmmo(64, "ar2", true) end)
-GM:AddStartingItem("3arcp",				ITEMCAT_AMMO,			20,				nil,			"96 assault rifle ammo",		nil,		"ammo_assault",			function(pl) pl:GiveAmmo(96, "ar2", true) end)
-GM:AddStartingItem("2rcp",				ITEMCAT_AMMO,			15,				nil,			"16 rifle ammo",				nil,		"ammo_rifle",			function(pl) pl:GiveAmmo(16, "357", true) end)
-GM:AddStartingItem("3rcp",				ITEMCAT_AMMO,			20,				nil,			"24 rifle ammo",				nil,		"ammo_rifle",			function(pl) pl:GiveAmmo(24, "357", true) end)
-GM:AddStartingItem("2pls",				ITEMCAT_AMMO,			15,				nil,			"60 pulse ammo",				nil,		"ammo_pulse",			function(pl) pl:GiveAmmo(60, "pulse", true) end)
-GM:AddStartingItem("3pls",				ITEMCAT_AMMO,			20,				nil,			"90 pulse ammo",				nil,		"ammo_pulse",			function(pl) pl:GiveAmmo(90, "pulse", true) end)
-GM:AddStartingItem("xbow1",				ITEMCAT_AMMO,			15,				nil,			"16 crossbow bolts",			nil,		"ammo_bolts",			function(pl) pl:GiveAmmo(16, "XBowBolt", true) end)
-GM:AddStartingItem("xbow2",				ITEMCAT_AMMO,			20,				nil,			"24 crossbow bolts",			nil,		"ammo_bolts",			function(pl) pl:GiveAmmo(24, "XBowBolt", true) end)
-GM:AddStartingItem("4mines",			ITEMCAT_AMMO,			15,				nil,			"6 explosives",					nil,		"ammo_explosive",		function(pl) pl:GiveAmmo(6, "impactmine", true) end)
-GM:AddStartingItem("6mines",			ITEMCAT_AMMO,			20,				nil,			"9 explosives",					nil,		"ammo_explosive",		function(pl) pl:GiveAmmo(9, "impactmine", true) end)
-GM:AddStartingItem("8nails",			ITEMCAT_AMMO,			15,				nil,			"8 nails",						nil, 		"ammo_nail", 			function(pl) pl:GiveAmmo(8, "GaussEnergy", true) end)
-GM:AddStartingItem("12nails",			ITEMCAT_AMMO,			20,				nil,			"12 nails",						nil, 		"ammo_nail", 			function(pl) pl:GiveAmmo(12, "GaussEnergy", true) end)
+GM:AddStartingItem("2pcp",				ITEMCAT_AMMO,			5,				nil,			"28 pistol ammo",				nil,		"ammo_pistol",			function(pl) pl:GiveAmmo(28, "pistol", true) end)
+GM:AddStartingItem("3pcp",				ITEMCAT_AMMO,			10,				nil,			"42 pistol ammo",				nil,		"ammo_pistol",			function(pl) pl:GiveAmmo(42, "pistol", true) end)
+GM:AddStartingItem("2sgcp",				ITEMCAT_AMMO,			5,				nil,			"24 shotgun ammo",				nil,		"ammo_shotgun",			function(pl) pl:GiveAmmo(24, "buckshot", true) end)
+GM:AddStartingItem("3sgcp",				ITEMCAT_AMMO,			10,				nil,			"36 shotgun ammo",				nil,		"ammo_shotgun",			function(pl) pl:GiveAmmo(36, "buckshot", true) end)
+GM:AddStartingItem("2smgcp",			ITEMCAT_AMMO,			5,				nil,			"72 SMG ammo",					nil,		"ammo_smg",				function(pl) pl:GiveAmmo(72, "smg1", true) end)
+GM:AddStartingItem("3smgcp",			ITEMCAT_AMMO,			10,				nil,			"108 SMG ammo",					nil,		"ammo_smg",				function(pl) pl:GiveAmmo(108, "smg1", true) end)
+GM:AddStartingItem("2arcp",				ITEMCAT_AMMO,			5,				nil,			"64 assault rifle ammo",		nil,		"ammo_assault",			function(pl) pl:GiveAmmo(64, "ar2", true) end)
+GM:AddStartingItem("3arcp",				ITEMCAT_AMMO,			10,				nil,			"96 assault rifle ammo",		nil,		"ammo_assault",			function(pl) pl:GiveAmmo(96, "ar2", true) end)
+GM:AddStartingItem("2rcp",				ITEMCAT_AMMO,			5,				nil,			"16 rifle ammo",				nil,		"ammo_rifle",			function(pl) pl:GiveAmmo(16, "357", true) end)
+GM:AddStartingItem("3rcp",				ITEMCAT_AMMO,			10,				nil,			"24 rifle ammo",				nil,		"ammo_rifle",			function(pl) pl:GiveAmmo(24, "357", true) end)
+GM:AddStartingItem("2pls",				ITEMCAT_AMMO,			5,				nil,			"60 pulse ammo",				nil,		"ammo_pulse",			function(pl) pl:GiveAmmo(60, "pulse", true) end)
+GM:AddStartingItem("3pls",				ITEMCAT_AMMO,			10,				nil,			"90 pulse ammo",				nil,		"ammo_pulse",			function(pl) pl:GiveAmmo(90, "pulse", true) end)
+GM:AddStartingItem("xbow1",				ITEMCAT_AMMO,			5,				nil,			"16 crossbow bolts",			nil,		"ammo_bolts",			function(pl) pl:GiveAmmo(16, "XBowBolt", true) end)
+GM:AddStartingItem("xbow2",				ITEMCAT_AMMO,			10,				nil,			"24 crossbow bolts",			nil,		"ammo_bolts",			function(pl) pl:GiveAmmo(24, "XBowBolt", true) end)
+GM:AddStartingItem("4mines",			ITEMCAT_AMMO,			5,				nil,			"6 explosives",					nil,		"ammo_explosive",		function(pl) pl:GiveAmmo(6, "impactmine", true) end)
+GM:AddStartingItem("6mines",			ITEMCAT_AMMO,			10,				nil,			"9 explosives",					nil,		"ammo_explosive",		function(pl) pl:GiveAmmo(9, "impactmine", true) end)
+GM:AddStartingItem("8nails",			ITEMCAT_AMMO,			5,				nil,			"8 nails",						nil, 		"ammo_nail", 			function(pl) pl:GiveAmmo(8, "GaussEnergy", true) end)
+GM:AddStartingItem("12nails",			ITEMCAT_AMMO,			10,				nil,			"12 nails",						nil, 		"ammo_nail", 			function(pl) pl:GiveAmmo(12, "GaussEnergy", true) end)
 GM:AddStartingItem("60mkit",			ITEMCAT_AMMO,			15,				nil,			"60 medical power",				nil,		"ammo_medpower",		function(pl) pl:GiveAmmo(60, "Battery", true) end)
-GM:AddStartingItem("90mkit",			ITEMCAT_AMMO,			25,				nil,			"90 medical power",				nil,		"ammo_medpower",		function(pl) pl:GiveAmmo(90, "Battery", true) end)
+GM:AddStartingItem("90mkit",			ITEMCAT_AMMO,			220,				nil,			"90 medical power",				nil,		"ammo_medpower",		function(pl) pl:GiveAmmo(90, "Battery", true) end)
 
-GM:AddStartingItem("brassknuckles",		ITEMCAT_MELEE,			20,				"weapon_zs_brassknuckles").Model = "models/props_c17/utilityconnecter005.mdl"
-GM:AddStartingItem("zpaxe",				ITEMCAT_MELEE,			40,				"weapon_zs_axe")
-GM:AddStartingItem("crwbar",			ITEMCAT_MELEE,			40,				"weapon_zs_crowbar")
-GM:AddStartingItem("stnbtn",			ITEMCAT_MELEE,			40,				"weapon_zs_stunbaton")
-GM:AddStartingItem("csknf",				ITEMCAT_MELEE,			20,				"weapon_zs_swissarmyknife")
-GM:AddStartingItem("zpplnk",			ITEMCAT_MELEE,			20,				"weapon_zs_plank")
-GM:AddStartingItem("zpfryp",			ITEMCAT_MELEE,			30,				"weapon_zs_fryingpan")
-GM:AddStartingItem("zpcpot",			ITEMCAT_MELEE,			30,				"weapon_zs_pot")
-GM:AddStartingItem("ladel",				ITEMCAT_MELEE,			30,				"weapon_zs_ladel")
-GM:AddStartingItem("pipe",				ITEMCAT_MELEE,			40,				"weapon_zs_pipe")
-GM:AddStartingItem("hook",				ITEMCAT_MELEE,			40,				"weapon_zs_hook")
+GM:AddStartingItem("brassknuckles",		ITEMCAT_MELEE,			5,				"weapon_zs_brassknuckles").Model = "models/props_c17/utilityconnecter005.mdl"
+GM:AddStartingItem("zpaxe",				ITEMCAT_MELEE,			15,				"weapon_zs_axe")
+GM:AddStartingItem("crwbar",			ITEMCAT_MELEE,			15,				"weapon_zs_crowbar")
+GM:AddStartingItem("stnbtn",			ITEMCAT_MELEE,			15,				"weapon_zs_stunbaton")
+GM:AddStartingItem("csknf",				ITEMCAT_MELEE,			5,				"weapon_zs_swissarmyknife")
+GM:AddStartingItem("zpplnk",			ITEMCAT_MELEE,			0,				"weapon_zs_plank")
+GM:AddStartingItem("zpfryp",			ITEMCAT_MELEE,			10,				"weapon_zs_fryingpan")
+GM:AddStartingItem("zpcpot",			ITEMCAT_MELEE,			10,				"weapon_zs_pot")
+GM:AddStartingItem("ladel",				ITEMCAT_MELEE,			10,				"weapon_zs_ladel")
+GM:AddStartingItem("pipe",				ITEMCAT_MELEE,			15,				"weapon_zs_pipe")
+GM:AddStartingItem("hook",				ITEMCAT_MELEE,			15,				"weapon_zs_hook")
 
 local item
-GM:AddStartingItem("medkit",			ITEMCAT_TOOLS,			60,				"weapon_zs_medicalkit")
-GM:AddStartingItem("medgun",			ITEMCAT_TOOLS,			55,				"weapon_zs_medicgun")
+GM:AddStartingItem("medkit",			ITEMCAT_TOOLS,			30,				"weapon_zs_medicalkit")
+GM:AddStartingItem("medgun",			ITEMCAT_TOOLS,			20,				"weapon_zs_medicgun")
 item =
-GM:AddStartingItem("strengthshot",		ITEMCAT_TOOLS,			40,				"weapon_zs_strengthshot")
+GM:AddStartingItem("strengthshot",		ITEMCAT_TOOLS,			20,				"weapon_zs_strengthshot")
 item.SkillRequirement = SKILL_U_STRENGTHSHOT
 item =
-GM:AddStartingItem("antidoteshot",		ITEMCAT_TOOLS,			40,				"weapon_zs_antidoteshot")
+GM:AddStartingItem("antidoteshot",		ITEMCAT_TOOLS,			15,				"weapon_zs_antidoteshot")
 item.SkillRequirement = SKILL_U_ANTITODESHOT
-GM:AddStartingItem("arscrate",			ITEMCAT_DEPLOYABLES,			50,				"weapon_zs_arsenalcrate")
+GM:AddStartingItem("arscrate",			ITEMCAT_DEPLOYABLES,			0,				"weapon_zs_arsenalcrate")
 .Countables = "prop_arsenalcrate"
-GM:AddStartingItem("resupplybox",		ITEMCAT_DEPLOYABLES,			50,				"weapon_zs_resupplybox")
+GM:AddStartingItem("resupplybox",		ITEMCAT_DEPLOYABLES,			0,				"weapon_zs_resupplybox")
 .Countables = "prop_resupplybox"
-GM:AddStartingItem("remantler",			ITEMCAT_DEPLOYABLES,			50,				"weapon_zs_remantler")
+GM:AddStartingItem("remantler",			ITEMCAT_DEPLOYABLES,			0,				"weapon_zs_remantler")
 .Countables = "prop_remantler"
 item =
-GM:AddStartingItem("infturret",			ITEMCAT_DEPLOYABLES,			75,				"weapon_zs_gunturret",			nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret") pl:GiveAmmo(1, "thumper") pl:GiveAmmo(125, "smg1") end)
+GM:AddStartingItem("infturret",			ITEMCAT_DEPLOYABLES,			35,				"weapon_zs_gunturret",			nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret") pl:GiveAmmo(1, "thumper") pl:GiveAmmo(125, "smg1") end)
 item.Countables = "prop_gunturret"
 item.NoClassicMode = true
 item =
-GM:AddStartingItem("blastturret",		ITEMCAT_DEPLOYABLES,			75,				"weapon_zs_gunturret_buckshot",	nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret_buckshot") pl:GiveAmmo(1, "turret_buckshot") pl:GiveAmmo(30, "buckshot") end)
+GM:AddStartingItem("blastturret",		ITEMCAT_DEPLOYABLES,			30,				"weapon_zs_gunturret_buckshot",	nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret_buckshot") pl:GiveAmmo(1, "turret_buckshot") pl:GiveAmmo(30, "buckshot") end)
 item.Countables = "prop_gunturret_buckshot"
 item.NoClassicMode = true
 item.SkillRequirement = SKILL_U_BLASTTURRET
@@ -240,7 +247,7 @@ GM:AddStartingItem("msgbeacon",			ITEMCAT_DEPLOYABLES,			10,				"weapon_zs_messa
 item =
 GM:AddStartingItem("ffemitter",			ITEMCAT_DEPLOYABLES,			45,				"weapon_zs_ffemitter",			nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_ffemitter") pl:GiveAmmo(1, "slam") pl:GiveAmmo(50, "pulse") end)
 item.Countables = "prop_ffemitter"
-GM:AddStartingItem("barricadekit",		ITEMCAT_DEPLOYABLES,			80,				"weapon_zs_barricadekit")
+GM:AddStartingItem("barricadekit",		ITEMCAT_DEPLOYABLES,			45,				"weapon_zs_barricadekit")
 GM:AddStartingItem("camera",			ITEMCAT_DEPLOYABLES,			15,				"weapon_zs_camera").Countables = "prop_camera"
 GM:AddStartingItem("tv",				ITEMCAT_DEPLOYABLES,			35,				"weapon_zs_tv").Countables = "prop_tv"
 
@@ -306,57 +313,56 @@ GM:AddPointShopItem("sling",			ITEMCAT_GUNS,			15,				"weapon_zs_slinger", nil, 
 GM:AddPointShopItem("z9000",			ITEMCAT_GUNS,			15,				"weapon_zs_z9000", nil, nil, nil, function(pl) pl:GiveEmptyWeapon("weapon_zs_z9000") end)
 GM:AddPointShopItem("minelayer",		ITEMCAT_GUNS,			20,				"weapon_zs_minelayer", nil, nil, nil, function(pl) pl:GiveEmptyWeapon("weapon_zs_minelayer") end)
 -- Tier 2
-GM:AddPointShopItem("glock3",			ITEMCAT_GUNS,			35,				"weapon_zs_glock3")
-GM:AddPointShopItem("magnum",			ITEMCAT_GUNS,			35,				"weapon_zs_magnum")
-GM:AddPointShopItem("eraser",			ITEMCAT_GUNS,			35,				"weapon_zs_eraser")
-GM:AddPointShopItem("sawedoff",			ITEMCAT_GUNS,			35,				"weapon_zs_sawedoff")
-GM:AddPointShopItem("uzi",				ITEMCAT_GUNS,			35,				"weapon_zs_uzi")
-GM:AddPointShopItem("annabelle",		ITEMCAT_GUNS,			35,				"weapon_zs_annabelle")
-GM:AddPointShopItem("inquisitor",		ITEMCAT_GUNS,			35,				"weapon_zs_inquisitor")
-GM:AddPointShopItem("amigo",			ITEMCAT_GUNS,			35,				"weapon_zs_amigo")
-GM:AddPointShopItem("hurricane",		ITEMCAT_GUNS,			35,				"weapon_zs_hurricane")
+GM:AddPointShopItem("glock3",			ITEMCAT_GUNS,			90,				"weapon_zs_glock3")
+GM:AddPointShopItem("magnum",			ITEMCAT_GUNS,			90,				"weapon_zs_magnum")
+GM:AddPointShopItem("eraser",			ITEMCAT_GUNS,			90,				"weapon_zs_eraser")
+GM:AddPointShopItem("sawedoff",			ITEMCAT_GUNS,			90,				"weapon_zs_sawedoff")
+GM:AddPointShopItem("uzi",				ITEMCAT_GUNS,			90,				"weapon_zs_uzi")
+GM:AddPointShopItem("annabelle",		ITEMCAT_GUNS,			90,				"weapon_zs_annabelle")
+GM:AddPointShopItem("inquisitor",		ITEMCAT_GUNS,			90,				"weapon_zs_inquisitor")
+GM:AddPointShopItem("amigo",			ITEMCAT_GUNS,			90,				"weapon_zs_amigo")
+GM:AddPointShopItem("hurricane",		ITEMCAT_GUNS,			90,				"weapon_zs_hurricane")
 -- Tier 3
-GM:AddPointShopItem("deagle",			ITEMCAT_GUNS,			70,				"weapon_zs_deagle")
-GM:AddPointShopItem("tempest",			ITEMCAT_GUNS,			70,				"weapon_zs_tempest")
-GM:AddPointShopItem("ender",			ITEMCAT_GUNS,			70,				"weapon_zs_ender")
-GM:AddPointShopItem("shredder",			ITEMCAT_GUNS,			70,				"weapon_zs_smg")
-GM:AddPointShopItem("silencer",			ITEMCAT_GUNS,			70,				"weapon_zs_silencer")
-GM:AddPointShopItem("hunter",			ITEMCAT_GUNS,			70,				"weapon_zs_hunter")
-GM:AddPointShopItem("onyx",				ITEMCAT_GUNS,			70,				"weapon_zs_onyx")
-GM:AddPointShopItem("charon",			ITEMCAT_GUNS,			70,				"weapon_zs_charon")
-GM:AddPointShopItem("akbar",			ITEMCAT_GUNS,			70,				"weapon_zs_akbar")
-GM:AddPointShopItem("oberon",			ITEMCAT_GUNS,			70,				"weapon_zs_oberon")
-GM:AddPointShopItem("hyena",			ITEMCAT_GUNS,			70,				"weapon_zs_hyena")
-GM:AddPointShopItem("pollutor",			ITEMCAT_GUNS,			70,				"weapon_zs_pollutor")
+GM:AddPointShopItem("deagle",			ITEMCAT_GUNS,			250,				"weapon_zs_deagle")
+GM:AddPointShopItem("tempest",			ITEMCAT_GUNS,			250,				"weapon_zs_tempest")
+GM:AddPointShopItem("ender",			ITEMCAT_GUNS,			250,				"weapon_zs_ender")
+GM:AddPointShopItem("shredder",			ITEMCAT_GUNS,			250,				"weapon_zs_smg")
+GM:AddPointShopItem("silencer",			ITEMCAT_GUNS,			250,				"weapon_zs_silencer")
+GM:AddPointShopItem("hunter",			ITEMCAT_GUNS,			250,				"weapon_zs_hunter")
+GM:AddPointShopItem("onyx",				ITEMCAT_GUNS,			250,				"weapon_zs_onyx")
+GM:AddPointShopItem("charon",			ITEMCAT_GUNS,			250,				"weapon_zs_charon")
+GM:AddPointShopItem("akbar",			ITEMCAT_GUNS,			250,				"weapon_zs_akbar")
+GM:AddPointShopItem("oberon",			ITEMCAT_GUNS,			250,				"weapon_zs_oberon")
+GM:AddPointShopItem("hyena",			ITEMCAT_GUNS,			250,				"weapon_zs_hyena")
+GM:AddPointShopItem("pollutor",			ITEMCAT_GUNS,			250,				"weapon_zs_pollutor")
 -- Tier 4
-GM:AddPointShopItem("longarm",			ITEMCAT_GUNS,			125,			"weapon_zs_longarm")
-GM:AddPointShopItem("sweeper",			ITEMCAT_GUNS,			125,			"weapon_zs_sweepershotgun")
-GM:AddPointShopItem("jackhammer",		ITEMCAT_GUNS,			125,			"weapon_zs_jackhammer")
-GM:AddPointShopItem("bulletstorm",		ITEMCAT_GUNS,			125,			"weapon_zs_bulletstorm")
-GM:AddPointShopItem("reaper",			ITEMCAT_GUNS,			125,			"weapon_zs_reaper")
-GM:AddPointShopItem("quicksilver",		ITEMCAT_GUNS,			125,			"weapon_zs_quicksilver")
-GM:AddPointShopItem("slugrifle",		ITEMCAT_GUNS,			125,			"weapon_zs_slugrifle")
-GM:AddPointShopItem("artemis",			ITEMCAT_GUNS,			125,			"weapon_zs_artemis")
-GM:AddPointShopItem("zeus",				ITEMCAT_GUNS,			125,			"weapon_zs_zeus")
-GM:AddPointShopItem("stalker",			ITEMCAT_GUNS,			125,			"weapon_zs_m4")
-GM:AddPointShopItem("inferno",			ITEMCAT_GUNS,			125,			"weapon_zs_inferno")
-GM:AddPointShopItem("quasar",			ITEMCAT_GUNS,			125,			"weapon_zs_quasar")
-GM:AddPointShopItem("gluon",			ITEMCAT_GUNS,			125,			"weapon_zs_gluon")
-GM:AddPointShopItem("barrage",			ITEMCAT_GUNS,			125,			"weapon_zs_barrage")
+GM:AddPointShopItem("longarm",			ITEMCAT_GUNS,			750,			"weapon_zs_longarm")
+GM:AddPointShopItem("sweeper",			ITEMCAT_GUNS,			750,			"weapon_zs_sweepershotgun")
+GM:AddPointShopItem("jackhammer",		ITEMCAT_GUNS,			750,			"weapon_zs_jackhammer")
+GM:AddPointShopItem("bulletstorm",		ITEMCAT_GUNS,			750,			"weapon_zs_bulletstorm")
+GM:AddPointShopItem("reaper",			ITEMCAT_GUNS,			750,			"weapon_zs_reaper")
+GM:AddPointShopItem("quicksilver",		ITEMCAT_GUNS,			750,			"weapon_zs_quicksilver")
+GM:AddPointShopItem("slugrifle",		ITEMCAT_GUNS,			750,			"weapon_zs_slugrifle")
+GM:AddPointShopItem("artemis",			ITEMCAT_GUNS,			750,			"weapon_zs_artemis")
+GM:AddPointShopItem("zeus",				ITEMCAT_GUNS,			750,			"weapon_zs_zeus")
+GM:AddPointShopItem("stalker",			ITEMCAT_GUNS,			750,			"weapon_zs_m4")
+GM:AddPointShopItem("inferno",			ITEMCAT_GUNS,			1000,			"weapon_zs_inferno")
+GM:AddPointShopItem("quasar",			ITEMCAT_GUNS,			750,			"weapon_zs_quasar")
+GM:AddPointShopItem("gluon",			ITEMCAT_GUNS,			750,			"weapon_zs_gluon")
+GM:AddPointShopItem("barrage",			ITEMCAT_GUNS,			750,			"weapon_zs_barrage")
 -- Tier 5
-GM:AddPointShopItem("novacolt",			ITEMCAT_GUNS,			200,			"weapon_zs_novacolt")
-GM:AddPointShopItem("bulwark",			ITEMCAT_GUNS,			200,			"weapon_zs_bulwark")
-GM:AddPointShopItem("juggernaut",		ITEMCAT_GUNS,			200,			"weapon_zs_juggernaut")
-GM:AddPointShopItem("scar",				ITEMCAT_GUNS,			200,			"weapon_zs_scar")
-GM:AddPointShopItem("boomstick",		ITEMCAT_GUNS,			200,			"weapon_zs_boomstick")
-GM:AddPointShopItem("deathdlrs",		ITEMCAT_GUNS,			200,			"weapon_zs_deathdealers")
-GM:AddPointShopItem("colossus",			ITEMCAT_GUNS,			200,			"weapon_zs_colossus")
-GM:AddPointShopItem("renegade",			ITEMCAT_GUNS,			200,			"weapon_zs_renegade")
-GM:AddPointShopItem("crossbow",			ITEMCAT_GUNS,			200,			"weapon_zs_crossbow")
-GM:AddPointShopItem("pulserifle",		ITEMCAT_GUNS,			200,			"weapon_zs_pulserifle")
-GM:AddPointShopItem("spinfusor",		ITEMCAT_GUNS,			200,			"weapon_zs_spinfusor")
-GM:AddPointShopItem("broadside",		ITEMCAT_GUNS,			200,			"weapon_zs_broadside")
-GM:AddPointShopItem("smelter",			ITEMCAT_GUNS,			200,			"weapon_zs_smelter")
+GM:AddPointShopItem("novacolt",			ITEMCAT_GUNS,			1500,			"weapon_zs_novacolt")
+GM:AddPointShopItem("bulwark",			ITEMCAT_GUNS,			1500,			"weapon_zs_bulwark")
+GM:AddPointShopItem("juggernaut",		ITEMCAT_GUNS,			1750,			"weapon_zs_juggernaut")
+GM:AddPointShopItem("scar",				ITEMCAT_GUNS,			2250,			"weapon_zs_boomstick")
+GM:AddPointShopItem("deathdlrs",		ITEMCAT_GUNS,			1500,			"weapon_zs_deathdealers")
+GM:AddPointShopItem("colossus",			ITEMCAT_GUNS,			1500,			"weapon_zs_colossus")
+GM:AddPointShopItem("renegade",			ITEMCAT_GUNS,			1500,			"weapon_zs_renegade")
+GM:AddPointShopItem("crossbow",			ITEMCAT_GUNS,			1500,			"weapon_zs_crossbow")
+GM:AddPointShopItem("pulserifle",		ITEMCAT_GUNS,			1500,			"weapon_zs_pulserifle")
+GM:AddPointShopItem("spinfusor",		ITEMCAT_GUNS,			1500,			"weapon_zs_spinfusor")
+GM:AddPointShopItem("broadside",		ITEMCAT_GUNS,			1500,			"weapon_zs_broadside")
+GM:AddPointShopItem("smelter",			ITEMCAT_GUNS,			1500,			"weapon_zs_smelter")
 
 GM:AddPointShopItem("pistolammo",		ITEMCAT_AMMO,			9,				nil,							"14 pistol ammo",				nil,									"ammo_pistol",						function(pl) pl:GiveAmmo(14, "pistol", true) end)
 GM:AddPointShopItem("shotgunammo",		ITEMCAT_AMMO,			9,				nil,							"12 shotgun ammo",				nil,									"ammo_shotgun",						function(pl) pl:GiveAmmo(12, "buckshot", true) end)
@@ -387,23 +393,23 @@ GM:AddPointShopItem("pipe",				ITEMCAT_MELEE,			15,				"weapon_zs_pipe")
 GM:AddPointShopItem("stunbaton",		ITEMCAT_MELEE,			15,				"weapon_zs_stunbaton")
 GM:AddPointShopItem("hook",				ITEMCAT_MELEE,			15,				"weapon_zs_hook")
 -- Tier 2
-GM:AddPointShopItem("broom",			ITEMCAT_MELEE,			30,				"weapon_zs_pushbroom")
-GM:AddPointShopItem("shovel",			ITEMCAT_MELEE,			30,				"weapon_zs_shovel")
-GM:AddPointShopItem("sledgehammer",		ITEMCAT_MELEE,			30,				"weapon_zs_sledgehammer")
-GM:AddPointShopItem("harpoon",			ITEMCAT_MELEE,			30,				"weapon_zs_harpoon")
-GM:AddPointShopItem("butcherknf",		ITEMCAT_MELEE,			30,				"weapon_zs_butcherknife")
+GM:AddPointShopItem("broom",			ITEMCAT_MELEE,			70,				"weapon_zs_pushbroom")
+GM:AddPointShopItem("shovel",			ITEMCAT_MELEE,			70,				"weapon_zs_shovel")
+GM:AddPointShopItem("sledgehammer",		ITEMCAT_MELEE,			70,				"weapon_zs_sledgehammer")
+GM:AddPointShopItem("harpoon",			ITEMCAT_MELEE,			70,				"weapon_zs_harpoon")
+GM:AddPointShopItem("butcherknf",		ITEMCAT_MELEE,			70,				"weapon_zs_butcherknife")
 -- Tier 3
-GM:AddPointShopItem("longsword",		ITEMCAT_MELEE,			60,				"weapon_zs_longsword")
-GM:AddPointShopItem("executioner",		ITEMCAT_MELEE,			60,				"weapon_zs_executioner")
-GM:AddPointShopItem("rebarmace",		ITEMCAT_MELEE,			60,				"weapon_zs_rebarmace")
-GM:AddPointShopItem("meattenderizer",	ITEMCAT_MELEE,			60,				"weapon_zs_meattenderizer")
+GM:AddPointShopItem("longsword",		ITEMCAT_MELEE,			450,				"weapon_zs_longsword")
+GM:AddPointShopItem("executioner",		ITEMCAT_MELEE,			450,				"weapon_zs_executioner")
+GM:AddPointShopItem("rebarmace",		ITEMCAT_MELEE,			450,				"weapon_zs_rebarmace")
+GM:AddPointShopItem("meattenderizer",	ITEMCAT_MELEE,			450,				"weapon_zs_meattenderizer")
 -- Tier 4
-GM:AddPointShopItem("graveshvl",		ITEMCAT_MELEE,			100,			"weapon_zs_graveshovel")
-GM:AddPointShopItem("kongol",			ITEMCAT_MELEE,			100,			"weapon_zs_kongolaxe")
-GM:AddPointShopItem("scythe",			ITEMCAT_MELEE,			100,			"weapon_zs_scythe")
-GM:AddPointShopItem("powerfists",		ITEMCAT_MELEE,			100,			"weapon_zs_powerfists")
+GM:AddPointShopItem("graveshvl",		ITEMCAT_MELEE,			700,			"weapon_zs_graveshovel")
+GM:AddPointShopItem("kongol",			ITEMCAT_MELEE,			700,			"weapon_zs_kongolaxe")
+GM:AddPointShopItem("scythe",			ITEMCAT_MELEE,			700,			"weapon_zs_scythe")
+GM:AddPointShopItem("powerfists",		ITEMCAT_MELEE,			700,			"weapon_zs_powerfists")
 -- Tier 5
-GM:AddPointShopItem("frotchet",			ITEMCAT_MELEE,			150,			"weapon_zs_frotchet")
+GM:AddPointShopItem("frotchet",			ITEMCAT_MELEE,			1750,			"weapon_zs_frotchet")
 
 GM:AddPointShopItem("crphmr",			ITEMCAT_TOOLS,			25,				"weapon_zs_hammer",			nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_hammer") pl:GiveAmmo(5, "GaussEnergy") end)
 GM:AddPointShopItem("wrench",			ITEMCAT_TOOLS,			20,				"weapon_zs_wrench").NoClassicMode = true
@@ -416,7 +422,6 @@ GM:AddPointShopItem("tv",				ITEMCAT_DEPLOYABLES,			25,				"weapon_zs_tv").Count
 item =
 GM:AddPointShopItem("infturret",		ITEMCAT_DEPLOYABLES,			50,				"weapon_zs_gunturret",			nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret") pl:GiveAmmo(1, "thumper") end)
 item.NoClassicMode = true
-item.Countables = "prop_gunturret"
 item =
 GM:AddPointShopItem("blastturret",		ITEMCAT_DEPLOYABLES,			50,				"weapon_zs_gunturret_buckshot",	nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret_buckshot") pl:GiveAmmo(1, "turret_buckshot") end)
 item.Countables = "prop_gunturret_buckshot"
@@ -699,7 +704,7 @@ end)
 GM.WaveOneLength = 220
 
 -- Add this many seconds for each additional wave.
-GM.TimeAddedPerWave = 15
+GM.TimeAddedPerWave = 5
 
 -- New players are put on the zombie team if the current wave is this or higher. Do not put it lower than 1 or you'll break the game.
 GM.NoNewHumansWave = 2
@@ -720,7 +725,7 @@ GM.EndGameTime = 45
 GM.SurvivalClips = 4 --2
 
 -- How long do humans have to wait before being able to get more ammo from a resupply box?
-GM.ResupplyBoxCooldown = 60
+GM.ResupplyBoxCooldown = 30
 
 -- Put your unoriginal, 5MB Rob Zombie and Metallica music here.
 GM.LastHumanSound = Sound("zombiesurvival/lasthuman.ogg")
@@ -746,7 +751,7 @@ GM.PointSaving = 0
 GM.LockItemTiers = false
 
 -- Don't save more than this amount of points. 0 for infinite.
-GM.PointSavingLimit = 0
+GM.PointSavingLimit = 5
 
 -- For Classic Mode
 GM.WaveIntermissionLengthClassic = 20
@@ -754,11 +759,76 @@ GM.WaveOneLengthClassic = 120
 GM.TimeAddedPerWaveClassic = 10
 
 -- Max amount of damage left to tick on these. Any more pending damage is ignored.
-GM.MaxPoisonDamage = 50
+GM.MaxPoisonDamage = 250
 GM.MaxBleedDamage = 50
 
 -- Give humans this many points when the wave ends.
-GM.EndWavePointsBonus = 5
+GM.EndWavePointsBonus = 30
 
 -- Also give humans this many points when the wave ends, multiplied by (wave - 1)
 GM.EndWavePointsBonusPerWave = 1
+
+--Custom 
+--Trinkets
+GM:AddStartingItem("hpbon",		ITEMCAT_CUSTOMTRINKETS,		25,				"trinket_hpbon").SubCategory =			ITEMSUBCAT_TRINKETS_PERFORMANCE
+GM:AddStartingItem("swift",		ITEMCAT_CUSTOMTRINKETS,		25,				"trinket_swift").SubCategory =			ITEMSUBCAT_TRINKETS_PERFORMANCE
+GM:AddPointShopItem("swift",		ITEMCAT_CUSTOMTRINKETS,		100,				"trinket_swift").SubCategory =			ITEMSUBCAT_TRINKETS_PERFORMANCE
+GM:AddStartingItem("resupboost", ITEMCAT_CUSTOMTRINKETS, 40, "trinket_resupboost").SubCategory =			ITEMSUBCAT_TRINKETS_SUPPORT
+GM:AddPointShopItem("resupboost", ITEMCAT_CUSTOMTRINKETS, 300, "trinket_resupboost").SubCategory =			ITEMSUBCAT_TRINKETS_SUPPORT
+GM:AddPointShopItem("repboost", ITEMCAT_CUSTOMTRINKETS, 500, "trinket_repboost").SubCategory = ITEMSUBCAT_TRINKETS_SUPPORT
+GM:AddPointShopItem("tank", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_tank").SubCategory = ITEMSUBCAT_TRINKETS_DEFENSIVE
+GM:AddPointShopItem("reloadspeed", ITEMCAT_CUSTOMTRINKETS, 900, "trinket_reloadspeed").SubCategory = ITEMSUBCAT_TRINKETS_OFFENSIVE
+GM:AddPointShopItem("doc", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_doc").SubCategory = ITEMSUBCAT_TRINKETS_SUPPORT
+GM:AddPointShopItem("wepdrawspeed", ITEMCAT_CUSTOMTRINKETS, 500, "trinket_wepdrawspeed").SubCategory = ITEMSUBCAT_TRINKETS_OFFENSIVE
+GM:AddPointShopItem("medlay", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_medlay").SubCategory = ITEMSUBCAT_TRINKETS_MELEE
+GM:AddPointShopItem("jugnaut", ITEMCAT_CUSTOMTRINKETS, 1450, "trinket_jugnaut").SubCategory = ITEMSUBCAT_TRINKETS_DEFENSIVE
+--no clue
+GM:AddPointShopItem("poostick",		ITEMCAT_GUNS,			250,			"weapon_zs_poostick")
+GM:AddPointShopItem("customboardpack",			ITEMCAT_JUNK,	30,				"weapon_zs_customboardpack")
+GM:AddPointShopItem("kitchenpack",			ITEMCAT_JUNK,	30,				"weapon_zs_kitchenpack")
+GM:AddPointShopItem("cratepack",			ITEMCAT_JUNK,	30,				"weapon_zs_cratepack")
+GM:AddPointShopItem("bedpack",			ITEMCAT_JUNK,	30,				"weapon_zs_bedpack")
+GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	30,				"weapon_zs_titaniumhammer")
+GM:AddPointShopItem("quickcadekit",			ITEMCAT_TOOLS,	50,				"weapon_zs_quickcadekit")
+
+
+-- ammo
+GM:AddPointShopItem("barricadeammo",ITEMCAT_AMMO,30,nil,"2 barricade ammo",nil,"ammo_sniper",function(pl) pl:GiveAmmo(2, "sniperround", true) end)
+
+-- TIER 3 CUSTOM
+GM:AddPointShopItem("advowen", ITEMCAT_GUNS, 300, "weapon_zs_advowen")
+GM:AddPointShopItem("thrower", ITEMCAT_GUNS, 300, "weapon_zs_thrower")
+GM:AddPointShopItem("z9999", ITEMCAT_GUNS, 275, "weapon_zs_z9999")
+-- TIER 4 Custom
+GM:AddPointShopItem("sodb", ITEMCAT_GUNS, 900 , "weapon_zs_sodb")
+GM:AddPointShopItem("advquicksilver", ITEMCAT_GUNS, 1300 , "weapon_zs_advquicksilver")
+-- TIER 5 Custom
+GM:AddPointShopItem("omegatempest", ITEMCAT_GUNS, 2000, "weapon_zs_omegatempest")
+GM:AddPointShopItem("minedropper", ITEMCAT_GUNS, 2000, "weapon_zs_minedropper")
+GM:AddPointShopItem("bmgluon", ITEMCAT_GUNS, 1500, "weapon_zs_bmgluon")
+GM:AddPointShopItem("hqdeagle", ITEMCAT_GUNS, 2000, "weapon_zs_hqdeagle")
+GM:AddPointShopItem("zsmg", ITEMCAT_GUNS, 2500, "weapon_zs_zsmg")
+GM:AddPointShopItem("bullethell",		ITEMCAT_GUNS,			4000,			"weapon_zs_bullethell")
+GM:AddPointShopItem("omegabullethell",		ITEMCAT_OPGUNS,			6000,			"weapon_zs_omegabullethell")
+GM:AddPointShopItem("stormsilencer",		ITEMCAT_OPGUNS,			8000,			"weapon_zs_stormsilencer")
+GM:AddPointShopItem("planker",		ITEMCAT_MELEE,			200,			"weapon_zs_planker")
+GM:AddPointShopItem("katana",		ITEMCAT_MELEE,			650,			"weapon_zs_katana")
+--  KATANA MODEL	-	https://steamcommunity.com/sharedfiles/filedetails/?id=696591226&searchtext=katana
+GM:AddPointShopItem("superscythe",		ITEMCAT_MELEE,			1000,			"weapon_zs_superscythe")
+GM:AddPointShopItem("meatsmasher",		ITEMCAT_MELEE,			500,			"weapon_zs_meatsmasher")
+
+
+-- Tier 6 CUstom
+GM:AddPointShopItem("heavyassault", ITEMCAT_GUNS, 5000 ,"weapon_zs_heavym4")
+GM:AddPointShopItem("heavyak", ITEMCAT_GUNS, 6000 ,"weapon_zs_omegaak")
+GM:AddPointShopItem("extremeinferno", ITEMCAT_GUNS, 8000 ,"weapon_zs_extremeinferno")
+GM:AddPointShopItem("extremehunter", ITEMCAT_GUNS, 4000 ,"weapon_zs_extremehunter")
+GM:AddPointShopItem("pumpaction", ITEMCAT_GUNS, 2500 ,"weapon_zs_pumpaction")
+GM:AddPointShopItem("adanis", ITEMCAT_GUNS, 4500 ,"weapon_zs_adanis")
+GM:AddPointShopItem("hqjg", ITEMCAT_GUNS, 7200 ,"weapon_zs_hqjuggernaut")
+--Tier 7 Custom
+GM:AddPointShopItem("minigun",ITEMCAT_GUNS, 20000,"weapon_zs_minigun")
+GM:AddPointShopItem("deadlyminigun",ITEMCAT_OPGUNS, 30000,"weapon_zs_deadlyminigun")
+GM:AddPointShopItem("gibber",ITEMCAT_OPGUNS, 30000,"weapon_zs_gibbermissile")
+GM:AddPointShopItem("erifle",ITEMCAT_OPGUNS, 25000,"weapon_zs_elephantrifle")
+GM:AddPointShopItem("dstick",ITEMCAT_OPGUNS, 30000,"weapon_zs_doomstick")

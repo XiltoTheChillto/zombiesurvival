@@ -3,9 +3,9 @@ CLASS.TranslationName = "class_skeletal_shambler"
 CLASS.Description = "description_skeletal_shambler"
 CLASS.Help = "controls_skeletal_shambler"
 
-CLASS.Wave = 5 / 6
+CLASS.Wave = 5 / 16
 
-CLASS.Health = 180
+CLASS.Health = 650
 CLASS.Speed = 155
 
 CLASS.CanTaunt = true
@@ -163,7 +163,7 @@ if SERVER then
 
 	function CLASS:ProcessDamage(pl, dmginfo)
 		if bit_band(dmginfo:GetDamageType(), DMG_BULLET) ~= 0 then
-			dmginfo:SetDamage(dmginfo:GetDamage() * 0.36)
+			dmginfo:SetDamage(dmginfo:GetDamage() * 0.75)
 		elseif bit_band(dmginfo:GetDamageType(), DMG_SLASH) == 0 and bit_band(dmginfo:GetDamageType(), DMG_CLUB) == 0 then
 			dmginfo:SetDamage(dmginfo:GetDamage() * 0.45)
 		end

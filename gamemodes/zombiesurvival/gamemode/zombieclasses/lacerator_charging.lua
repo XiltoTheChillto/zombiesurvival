@@ -5,7 +5,7 @@ CLASS.Help = "controls_lacerator_charging"
 
 CLASS.Model = Model("models/player/zombie_lacerator2.mdl")
 
-CLASS.Wave = 4 / 6
+CLASS.Wave = 4 / 16
 
 CLASS.Health = 350
 CLASS.Speed = 220

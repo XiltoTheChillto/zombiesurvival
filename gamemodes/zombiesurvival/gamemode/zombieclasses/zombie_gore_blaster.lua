@@ -10,7 +10,7 @@ CLASS.BetterVersion = "Chem Burster"
 CLASS.Wave = 0
 CLASS.Unlocked = true
 
-CLASS.Health = 220
+CLASS.Health = 350
 CLASS.Speed = 180
 CLASS.Revives = false
 
@@ -67,7 +67,7 @@ if not CLIENT then return end
 CLASS.Icon = "zombiesurvival/killicons/zombie"
 CLASS.IconColor = Color(255, 0, 0)
 
-local matSkin = Material("models/Zombie_Classic/Zombie_Classic_sheet.vtf")
+local matSkin = Material("models/Zombie_Classic/Zombie_Classic_sheet_normal.vtf")
 
 function CLASS:PrePlayerDraw(pl)
 	render.ModelMaterialOverride(matSkin)

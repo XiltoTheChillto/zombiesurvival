@@ -1,6 +1,6 @@
 CLASS.Base = "fast_zombie"
 
-CLASS.Wave = 2 / 6
+CLASS.Wave = 2 / 16
 
 CLASS.Name = "Slingshot Zombie"
 CLASS.TranslationName = "class_fast_zombie_slingshot"

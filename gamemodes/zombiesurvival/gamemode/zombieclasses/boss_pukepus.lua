@@ -9,7 +9,7 @@ CLASS.KnockbackScale = 0
 
 CLASS.FearPerInstance = 1
 
-CLASS.Health = 2750
+CLASS.Health = 20000
 CLASS.SWEP = "weapon_zs_pukepus"
 
 CLASS.Model = Model("models/Zombie/Poison.mdl")
@@ -22,11 +22,11 @@ CLASS.DeathSounds = {Sound("npc/zombie_poison/pz_call1.wav")}
 
 CLASS.VoicePitch = 0.5
 
---[[CLASS.ModelScale = 1.5
+CLASS.ModelScale = 1.5
 CLASS.Mass = 200
-CLASS.ViewOffset = Vector(0, 0, 75)
+CLASS.ViewOffset = Vector(0, 0, 750)
 CLASS.ViewOffsetDucked = Vector(0, 0, 48)
-CLASS.StepSize = 25]]
+CLASS.StepSize = 25
 --[[CLASS.Hull = {Vector(-22, -22, 0), Vector(22, 22, 96)}
 CLASS.HullDuck = {Vector(-22, -22, 0), Vector(22, 22, 58)}]]
 

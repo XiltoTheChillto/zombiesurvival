@@ -4,10 +4,10 @@ CLASS.Name = "Wild Poison Zombie"
 CLASS.TranslationName = "class_wild_poison_zombie"
 CLASS.Description = "description_wild_poison_zombie"
 CLASS.Help = "controls_poison_zombie"
+CLASS.BetterVersion = "Crazy Poison Zombie"
+CLASS.Wave = 5 / 16
 
-CLASS.Wave = 5 / 6
-
-CLASS.Health = 460
+CLASS.Health = 860
 CLASS.SWEP = "weapon_zs_wildpoisonzombie"
 
 CLASS.Points = CLASS.Health/GM.PoisonZombiePointRatio

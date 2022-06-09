@@ -7,7 +7,7 @@ CLASS.BetterVersion = "Bloodsucker Headcrab"
 
 CLASS.Model = Model("models/headcrab.mdl")
 
-CLASS.Wave = 2 / 6
+CLASS.Wave = 2 / 16
 
 CLASS.SWEP = "weapon_zs_fastheadcrab"
 

@@ -12,7 +12,7 @@ CLASS.CanTaunt = true
 
 CLASS.SWEP = "weapon_zs_shadowwalker"
 
-CLASS.Wave = 2 / 6
+CLASS.Wave = 2 / 16
 
 CLASS.Health = 220
 CLASS.Speed = 180

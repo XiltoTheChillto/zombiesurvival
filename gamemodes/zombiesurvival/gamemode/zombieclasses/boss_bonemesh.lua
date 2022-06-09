@@ -9,7 +9,7 @@ CLASS.KnockbackScale = 0
 
 CLASS.CanTaunt = true
 
-CLASS.Health = 2000
+CLASS.Health = 20000
 CLASS.Speed = 195
 
 CLASS.FearPerInstance = 1
