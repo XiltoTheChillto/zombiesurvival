@@ -203,7 +203,7 @@ function GM:SupplyItemViewerDetail(viewer, sweptable, shoptbl)
 	end
 	viewer.m_Desc:SetText(desctext)
 
-	self:ViewerStatBarUpdate(viewer, shoptbl.Category ~= ITEMCAT_GUNS and shoptbl.Category ~= ITEMCAT_MELEE, sweptable)
+	self:ViewerStatBarUpdate(viewer, shoptbl.Category ~= ITEMCAT_GUNS and shoptbl.Category ~= ITEMCAT_OPGUNS and shoptbl.Category ~= ITEMCAT_MELEE, sweptable)
 
 	if self:HasPurchaseableAmmo(sweptable) and self.AmmoNames[string.lower(sweptable.Primary.Ammo)] then
 		local lower = string.lower(sweptable.Primary.Ammo)

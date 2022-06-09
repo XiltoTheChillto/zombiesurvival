@@ -47,7 +47,7 @@ local function SetWeaponViewerSWEP(self, swep, category, comps)
 	viewer.m_Desc:SetFont("ZSBodyTextFont")
 	viewer.m_Desc:SetText(desctext)
 
-	GAMEMODE:ViewerStatBarUpdate(viewer, category ~= ITEMCAT_GUNS and category ~= ITEMCAT_MELEE, sweptable)
+	GAMEMODE:ViewerStatBarUpdate(viewer, category ~= ITEMCAT_GUNS and category ~= ITEMCAT_OPGUNS and category ~= ITEMCAT_MELEE, sweptable)
 	if GAMEMODE:HasPurchaseableAmmo(sweptable) and GAMEMODE.AmmoNames[string.lower(sweptable.Primary.Ammo)] then
 		local lower = string.lower(sweptable.Primary.Ammo)
 
