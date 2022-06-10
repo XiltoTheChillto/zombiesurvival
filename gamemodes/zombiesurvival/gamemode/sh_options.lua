@@ -782,6 +782,7 @@ GM:AddPointShopItem("doc", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_doc").SubCatego
 GM:AddPointShopItem("wepdrawspeed", ITEMCAT_CUSTOMTRINKETS, 500, "trinket_wepdrawspeed").SubCategory = ITEMSUBCAT_TRINKETS_OFFENSIVE
 GM:AddPointShopItem("medlay", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_medlay").SubCategory = ITEMSUBCAT_TRINKETS_MELEE
 GM:AddPointShopItem("jugnaut", ITEMCAT_CUSTOMTRINKETS, 1450, "trinket_jugnaut").SubCategory = ITEMSUBCAT_TRINKETS_DEFENSIVE
+GM:AddPointShopItem("fdelay", ITEMCAT_CUSTOMTRINKETS, 500, "trinket_fdelay").SubCategory = ITEMSUBCAT_TRINKETS_SUPPORT
 --no clue
 GM:AddPointShopItem("poostick",		ITEMCAT_GUNS,			250,			"weapon_zs_poostick")
 GM:AddPointShopItem("customboardpack",			ITEMCAT_JUNK,	30,				"weapon_zs_customboardpack")
@@ -789,6 +790,7 @@ GM:AddPointShopItem("kitchenpack",			ITEMCAT_JUNK,	30,				"weapon_zs_kitchenpack
 GM:AddPointShopItem("cratepack",			ITEMCAT_JUNK,	30,				"weapon_zs_cratepack")
 GM:AddPointShopItem("bedpack",			ITEMCAT_JUNK,	30,				"weapon_zs_bedpack")
 GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	500,				"weapon_zs_titaniumhammer")
+GM:AddPointShopItem("advmedkit",			ITEMCAT_TOOLS,	300,				"weapon_zs_advmedkit")
 
 
 -- ammo
@@ -802,15 +804,15 @@ GM:AddPointShopItem("z9999", ITEMCAT_GUNS, 275, "weapon_zs_z9999")
 GM:AddPointShopItem("sodb", ITEMCAT_GUNS, 900 , "weapon_zs_sodb")
 GM:AddPointShopItem("advquicksilver", ITEMCAT_GUNS, 1300 , "weapon_zs_advquicksilver")
 -- TIER 5 Custom
-GM:AddPointShopItem("omegatempest", ITEMCAT_GUNS, 2000, "weapon_zs_omegatempest")
+GM:AddPointShopItem("omegatempest", ITEMCAT_GUNS, 3000, "weapon_zs_omegatempest")
 GM:AddPointShopItem("minedropper", ITEMCAT_GUNS, 2000, "weapon_zs_minedropper")
 GM:AddPointShopItem("bmgluon", ITEMCAT_GUNS, 1500, "weapon_zs_bmgluon")
 GM:AddPointShopItem("hqdeagle", ITEMCAT_GUNS, 2000, "weapon_zs_hqdeagle")
 GM:AddPointShopItem("zsmg", ITEMCAT_GUNS, 2500, "weapon_zs_zsmg")
-GM:AddPointShopItem("bullethell",		ITEMCAT_GUNS,			4000,			"weapon_zs_bullethell")
-GM:AddPointShopItem("omegabullethell",		ITEMCAT_OPGUNS,			6000,			"weapon_zs_omegabullethell")
-GM:AddPointShopItem("stormsilencer",		ITEMCAT_OPGUNS,			8000,			"weapon_zs_stormsilencer")
-GM:AddPointShopItem("planker",		ITEMCAT_MELEE,			200,			"weapon_zs_planker")
+GM:AddPointShopItem("bullethell",		ITEMCAT_GUNS,			5000,			"weapon_zs_bullethell")
+GM:AddPointShopItem("omegabullethell",		ITEMCAT_OPGUNS,			9000,			"weapon_zs_omegabullethell")
+GM:AddPointShopItem("stormsilencer",		ITEMCAT_OPGUNS,			9000,			"weapon_zs_stormsilencer")
+GM:AddPointShopItem("planker",		ITEMCAT_MELEE,			400,			"weapon_zs_planker")
 GM:AddPointShopItem("katana",		ITEMCAT_MELEE,			650,			"weapon_zs_katana")
 --  KATANA MODEL	-	https://steamcommunity.com/sharedfiles/filedetails/?id=696591226&searchtext=katana
 GM:AddPointShopItem("superscythe",		ITEMCAT_MELEE,			1000,			"weapon_zs_superscythe")
@@ -818,7 +820,7 @@ GM:AddPointShopItem("meatsmasher",		ITEMCAT_MELEE,			500,			"weapon_zs_meatsmash
 
 
 -- Tier 6 CUstom
-GM:AddPointShopItem("heavyassault", ITEMCAT_GUNS, 5000 ,"weapon_zs_heavym4")
+GM:AddPointShopItem("heavyassault", ITEMCAT_GUNS, 6000 ,"weapon_zs_heavym4")
 GM:AddPointShopItem("heavyak", ITEMCAT_GUNS, 6000 ,"weapon_zs_omegaak")
 GM:AddPointShopItem("extremeinferno", ITEMCAT_GUNS, 8000 ,"weapon_zs_extremeinferno")
 GM:AddPointShopItem("extremehunter", ITEMCAT_GUNS, 4000 ,"weapon_zs_extremehunter")
@@ -826,8 +828,8 @@ GM:AddPointShopItem("pumpaction", ITEMCAT_GUNS, 2500 ,"weapon_zs_pumpaction")
 GM:AddPointShopItem("adanis", ITEMCAT_GUNS, 4500 ,"weapon_zs_adanis")
 GM:AddPointShopItem("hqjg", ITEMCAT_GUNS, 7200 ,"weapon_zs_hqjuggernaut")
 --Tier 7 Custom
-GM:AddPointShopItem("minigun",ITEMCAT_GUNS, 20000,"weapon_zs_minigun")
-GM:AddPointShopItem("deadlyminigun",ITEMCAT_OPGUNS, 30000,"weapon_zs_deadlyminigun")
-GM:AddPointShopItem("gibber",ITEMCAT_OPGUNS, 30000,"weapon_zs_gibbermissile")
-GM:AddPointShopItem("erifle",ITEMCAT_OPGUNS, 25000,"weapon_zs_elephantrifle")
-GM:AddPointShopItem("dstick",ITEMCAT_OPGUNS, 30000,"weapon_zs_doomstick")
+GM:AddPointShopItem("minigun",ITEMCAT_GUNS, 30000,"weapon_zs_minigun")
+GM:AddPointShopItem("deadlyminigun",ITEMCAT_OPGUNS, 40000,"weapon_zs_deadlyminigun")
+GM:AddPointShopItem("gibber",ITEMCAT_OPGUNS, 50000,"weapon_zs_gibbermissile")
+GM:AddPointShopItem("erifle",ITEMCAT_OPGUNS, 35000,"weapon_zs_elephantrifle")
+GM:AddPointShopItem("dstick",ITEMCAT_OPGUNS, 35000,"weapon_zs_doomstick")

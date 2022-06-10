@@ -538,6 +538,14 @@ GM:AddSkillModifier(trinket, SKILLMOD_MELEE_SWING_DELAY_MUL, -0.15)
 trinketwep.PermitDismantle = true
 
 trinket, trinketwep = GM:AddTrinket("Juggernaut", "jugnaut", false, hpveles, hpweles, nil, "+400 Health\n+15% Melee damage resistance")
-GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 408)
+GM:AddSkillModifier(trinket, SKILLMOD_HEALTH, 400)
 GM:AddSkillModifier(trinket, SKILLMOD_MELEE_DAMAGE_TAKEN_MUL, -0.15)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("Field delay", "fdelay", false, hpveles, hpweles, nil, "-30% Field delay")
+GM:AddSkillModifier(trinket, SKILLMOD_FIELD_DELAY_MUL, -0.3)
+trinketwep.PermitDismantle = true
+
+trinket, trinketwep = GM:AddTrinket("healdelay", "healdelay", false, hpveles, hpweles, nil, "-35% Medical kit cooldown")
+GM:AddSkillModifier(trinket, SKILLMOD_MEDKIT_COOLDOWN_MUL, -0.3)
 trinketwep.PermitDismantle = true

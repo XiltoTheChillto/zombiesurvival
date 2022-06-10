@@ -2,9 +2,10 @@ CLASS.Name = "Blocker"
 CLASS.TranslationName = "class_blocker"
 CLASS.Description = "description_blocker"
 CLASS.Help = "controls_blocker"
+CLASS.Wave = 8 / 16
 
 CLASS.KnockbackScale = 0
-CLASS.Wave = 8 / 16
+
 CLASS.NoGibs = true
 CLASS.NoFallDamage = true
 CLASS.NoFallSlowdown = true
@@ -14,7 +15,7 @@ CLASS.NoAdjustPhysDamage = true
 
 CLASS.CanTaunt = true
 
-CLASS.Health = 400
+CLASS.Health = 150 --1200
 CLASS.Speed = 170 --125
 
 CLASS.FearPerInstance = 1
