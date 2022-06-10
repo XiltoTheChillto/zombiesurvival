@@ -78,7 +78,7 @@ function SWEP:OnMeleeHit(hitent, hitflesh, tr)
 		if oldhealth <= 0 or oldhealth >= hitent:GetMaxBarricadeHealth() or hitent:GetBarricadeRepairs() <= 0.01 then return end
 
 		hitent:SetBarricadeHealth(math.min(hitent:GetMaxBarricadeHealth(), hitent:GetBarricadeHealth() + math.min(hitent:GetBarricadeRepairs(), healstrength)))
-		local healed = 25
+		local healed = 15
 		hitent:SetBarricadeRepairs(math.max(hitent:GetBarricadeRepairs() + healed, 0))
 		self:PlayRepairSound(hitent)
 		gamemode.Call("PlayerRepairedObject", owner, hitent, healed, self)

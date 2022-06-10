@@ -788,8 +788,7 @@ GM:AddPointShopItem("customboardpack",			ITEMCAT_JUNK,	30,				"weapon_zs_customb
 GM:AddPointShopItem("kitchenpack",			ITEMCAT_JUNK,	30,				"weapon_zs_kitchenpack")
 GM:AddPointShopItem("cratepack",			ITEMCAT_JUNK,	30,				"weapon_zs_cratepack")
 GM:AddPointShopItem("bedpack",			ITEMCAT_JUNK,	30,				"weapon_zs_bedpack")
-GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	30,				"weapon_zs_titaniumhammer")
-GM:AddPointShopItem("quickcadekit",			ITEMCAT_TOOLS,	50,				"weapon_zs_quickcadekit")
+GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	500,				"weapon_zs_titaniumhammer")
 
 
 -- ammo
