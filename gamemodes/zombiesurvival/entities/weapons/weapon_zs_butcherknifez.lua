@@ -3,13 +3,13 @@ AddCSLuaFile()
 SWEP.Base = "weapon_zs_butcherknife"
 
 SWEP.ZombieOnly = true
-SWEP.MeleeDamage = 28
+SWEP.MeleeDamage = 50
 SWEP.OriginalMeleeDamage = SWEP.MeleeDamage
-SWEP.Primary.Delay = 0.45
+SWEP.Primary.Delay = 0.35
 
 function SWEP:OnMeleeHit(hitent, hitflesh, tr)
 	if not hitent:IsPlayer() then
-		self.MeleeDamage = 18
+		self.MeleeDamage = 38
 	end
 end
 
