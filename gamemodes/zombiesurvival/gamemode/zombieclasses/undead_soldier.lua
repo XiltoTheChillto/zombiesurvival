@@ -5,7 +5,7 @@ CLASS.Help = "controls_undeadsoldier"
 CLASS.BetterVersion = "Undead Fighter"
 CLASS.Health = 400
 CLASS.Speed = 200
-CLASS.Unlock = 6 / 16
+CLASS.Wave = 6 / 16
 
 CLASS.Points = CLASS.Health/GM.HumanoidZombiePointRatio
 

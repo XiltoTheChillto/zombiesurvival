@@ -1,9 +1,8 @@
 CLASS.Name = "Undead Fighter"
-CLASS.TranslationName = "class_undeadsoldier"
+CLASS.TranslationName = "class_undeadfighter"
 CLASS.Description = "description_undeadsoldier"
 CLASS.Help = "controls_undeadsoldier"
-CLASS.BetterVersion = "Undead Fighter"
-CLASS.Unlock = 9 / 16
+CLASS.Wave = 9 / 16
 CLASS.Health = 600
 CLASS.Speed = 220
 

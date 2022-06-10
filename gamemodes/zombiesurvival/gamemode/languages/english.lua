@@ -329,6 +329,7 @@ LANGUAGE.class_deadlyheavyamoredlacerator			= "Deadly Heavy Armored Lacerator"
 LANGUAGE.class_agile_lacerator						= "Agile Lacerator"
 LANGUAGE.class_blocker								= "Blocker"
 LANGUAGE.class_undeadsoldier						= "Undead Soldier"
+LANGUAGE.class_undeadfighter						= "Undead Fighter"
 
 
 -- Class descriptions
