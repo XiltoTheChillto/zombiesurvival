@@ -782,15 +782,15 @@ GM:AddPointShopItem("doc", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_doc").SubCatego
 GM:AddPointShopItem("wepdrawspeed", ITEMCAT_CUSTOMTRINKETS, 500, "trinket_wepdrawspeed").SubCategory = ITEMSUBCAT_TRINKETS_OFFENSIVE
 GM:AddPointShopItem("medlay", ITEMCAT_CUSTOMTRINKETS, 750, "trinket_medlay").SubCategory = ITEMSUBCAT_TRINKETS_MELEE
 GM:AddPointShopItem("jugnaut", ITEMCAT_CUSTOMTRINKETS, 1450, "trinket_jugnaut").SubCategory = ITEMSUBCAT_TRINKETS_DEFENSIVE
+GM:AddPointShopItem("fdelay", ITEMCAT_CUSTOMTRINKETS, 500, "trinket_fdelay").SubCategory = ITEMSUBCAT_TRINKETS_SUPPORT
 --no clue
 GM:AddPointShopItem("poostick",		ITEMCAT_GUNS,			250,			"weapon_zs_poostick")
 GM:AddPointShopItem("customboardpack",			ITEMCAT_JUNK,	30,				"weapon_zs_customboardpack")
 GM:AddPointShopItem("kitchenpack",			ITEMCAT_JUNK,	30,				"weapon_zs_kitchenpack")
 GM:AddPointShopItem("cratepack",			ITEMCAT_JUNK,	30,				"weapon_zs_cratepack")
 GM:AddPointShopItem("bedpack",			ITEMCAT_JUNK,	30,				"weapon_zs_bedpack")
-GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	30,				"weapon_zs_titaniumhammer")
-GM:AddPointShopItem("quickcadekit",			ITEMCAT_TOOLS,	50,				"weapon_zs_quickcadekit")
-
+GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	500,				"weapon_zs_titaniumhammer")
+GM:AddPointShopItem("advmedkit",			ITEMCAT_TOOLS,	300,				"weapon_zs_advmedkit")
 
 -- ammo
 GM:AddPointShopItem("barricadeammo",ITEMCAT_AMMO,30,nil,"2 barricade ammo",nil,"ammo_sniper",function(pl) pl:GiveAmmo(2, "sniperround", true) end)
