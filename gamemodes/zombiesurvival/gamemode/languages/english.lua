@@ -330,6 +330,8 @@ LANGUAGE.class_agile_lacerator						= "Agile Lacerator"
 LANGUAGE.class_blocker								= "Blocker"
 LANGUAGE.class_undeadsoldier						= "Undead Soldier"
 LANGUAGE.class_undeadfighter						= "Undead Fighter"
+LANGUAGE.class_dangzombie							= "Dangerous Zombie"
+LANGUAGE.class_heavyeradicator						= "Heavy Eradicator"
 
 
 -- Class descriptions

@@ -1,23 +1,23 @@
-CLASS.Name = "Advanced Zombie"
-CLASS.TranslationName = "class_advzombie"
+CLASS.Name = "Dangerous Zombie"
+CLASS.TranslationName = "class_dangzombie"
 CLASS.Description = "description_zombie"
 CLASS.Help = "controls_zombie"
 
-CLASS.BetterVersion = "Dangerous Zombie"
+CLASS.BetterVersion = "Eradicator"
 
-CLASS.Wave = 2 / 16
+CLASS.Wave = 4 / 16
 
 CLASS.Order = 0
 
-CLASS.Health = 500
-CLASS.Speed = 180
+CLASS.Health = 575
+CLASS.Speed = 185
 CLASS.Revives = true
 
 CLASS.CanTaunt = true
 
 CLASS.Points = CLASS.Health/GM.HumanoidZombiePointRatio
 
-CLASS.SWEP = "weapon_zs_advzombie"
+CLASS.SWEP = "weapon_zs_dangzombie"
 
 CLASS.Model = Model("models/player/zombie_classic_hbfix.mdl")
 
