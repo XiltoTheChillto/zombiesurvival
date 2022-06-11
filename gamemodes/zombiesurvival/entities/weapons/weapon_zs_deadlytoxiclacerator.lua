@@ -21,6 +21,7 @@ sound.Add({
 })
 
 SWEP.MeleeDamage = 30
+SWEP.MeleeDamageVsProps = 60
 
 SWEP.SlowMeleeDelay = 0.55
 SWEP.SlowMeleeDamage = 60
