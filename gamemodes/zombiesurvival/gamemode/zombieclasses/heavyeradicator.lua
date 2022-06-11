@@ -1,32 +1,23 @@
-CLASS.Name = "Advanced Zombie"
-CLASS.TranslationName = "class_advzombie"
-CLASS.Description = "description_zombie"
-CLASS.Help = "controls_zombie"
+CLASS.Name = "Heavy Eradicator"
+CLASS.TranslationName = "class_heavyeradicator"
+CLASS.Description = "description_eradicator"
+CLASS.Help = "controls_eradicator"
 
-CLASS.BetterVersion = "Dangerous Zombie"
+CLASS.Wave = 9 / 16
 
-CLASS.Wave = 2 / 16
-
-CLASS.Order = 0
-
-CLASS.Health = 500
-CLASS.Speed = 180
-CLASS.Revives = true
+CLASS.Health = 850
+CLASS.Speed = 190
 
 CLASS.CanTaunt = true
 
 CLASS.Points = CLASS.Health/GM.HumanoidZombiePointRatio
 
-CLASS.SWEP = "weapon_zs_advzombie"
+CLASS.SWEP = "weapon_zs_eradicator"
 
 CLASS.Model = Model("models/player/zombie_classic_hbfix.mdl")
+CLASS.OverrideModel = Model("models/Zombie/Poison.mdl")
 
-CLASS.PainSounds = {"npc/zombie/zombie_pain1.wav", "npc/zombie/zombie_pain2.wav", "npc/zombie/zombie_pain3.wav", "npc/zombie/zombie_pain4.wav", "npc/zombie/zombie_pain5.wav", "npc/zombie/zombie_pain6.wav"}
-CLASS.DeathSounds = {"npc/zombie/zombie_die1.wav", "npc/zombie/zombie_die2.wav", "npc/zombie/zombie_die3.wav"}
-
-CLASS.VoicePitch = 0.65
-
-CLASS.CanFeignDeath = true
+CLASS.VoicePitch = 0.6
 
 local CurTime = CurTime
 local math_random = math.random
@@ -63,44 +54,36 @@ function CLASS:KnockedDown(pl, status, exists)
 	pl:AnimResetGestureSlot(GESTURE_SLOT_ATTACK_AND_RELOAD)
 end
 
-local StepSounds = {
+local StepLeftSounds = {
 	"npc/zombie/foot1.wav",
+	"npc/zombie/foot2.wav"
+}
+local StepRightSounds = {
 	"npc/zombie/foot2.wav",
 	"npc/zombie/foot3.wav"
 }
-local ScuffSounds = {
-	"npc/zombie/foot_slide1.wav",
-	"npc/zombie/foot_slide2.wav",
-	"npc/zombie/foot_slide3.wav"
-}
 function CLASS:PlayerFootstep(pl, vFootPos, iFoot, strSoundName, fVolume, pFilter)
-	if math_random() < 0.15 then
-		pl:EmitSound(ScuffSounds[math_random(#ScuffSounds)], 70)
+	if iFoot == 0 then
+		pl:EmitSound(StepLeftSounds[math_random(#StepLeftSounds)], 70)
 	else
-		pl:EmitSound(StepSounds[math_random(#StepSounds)], 70)
+		pl:EmitSound(StepRightSounds[math_random(#StepRightSounds)], 70)
 	end
 
 	return true
 end
 
--- Sound scripts are LITERALLY 100x slower than raw file input. Test it yourself if you don't believe me.
---[[function CLASS:PlayerFootstep(pl, vFootPos, iFoot, strSoundName, fVolume, pFilter)
-	if iFoot == 0 then
-		if math_random() < 0.15 then
-			pl:EmitSound("Zombie.ScuffLeft")
-		else
-			pl:EmitSound("Zombie.FootstepLeft")
-		end
-	else
-		if math_random() < 0.15 then
-			pl:EmitSound("Zombie.ScuffRight")
-		else
-			pl:EmitSound("Zombie.FootstepRight")
-		end
-	end
+function CLASS:PlayPainSound(pl)
+	pl:EmitSound("npc/combine_soldier/pain"..math_random(3)..".wav", 75, math.Rand(60, 65))
+	pl.NextPainSound = CurTime() + 0.5
 
 	return true
-end]]
+end
+
+function CLASS:PlayDeathSound(pl)
+	pl:EmitSound("npc/combine_gunship/gunship_pain.wav", 75, math.Rand(70, 75))
+
+	return true
+end
 
 function CLASS:PlayerStepSoundTime(pl, iType, bWalking)
 	if iType == STEPSOUNDTIME_NORMAL or iType == STEPSOUNDTIME_WATER_FOOT then
@@ -156,7 +139,7 @@ end
 function CLASS:UpdateAnimation(pl, velocity, maxseqgroundspeed)
 	local revive = pl.Revive
 	if revive and revive:IsValid() then
-		pl:SetCycle(0.4 + (1 - math_Clamp((revive:GetReviveTime() - CurTime()) / revive.AnimTime, 0, 1)) * 0.6)
+		pl:SetCycle(0.4 + (1 - math_Clamp((revive:GetReviveTime() - CurTime()) / revive:GetReviveAnim(), 0, 1)) * 0.6)
 		pl:SetPlaybackRate(0)
 		return true
 	end
@@ -178,7 +161,7 @@ function CLASS:UpdateAnimation(pl, velocity, maxseqgroundspeed)
 		if wep:IsValid() and wep.IsMoaning and wep:IsMoaning() then
 			pl:SetPlaybackRate(math_min(len2d / maxseqgroundspeed, 3))
 		else
-			pl:SetPlaybackRate(math_min(len2d / maxseqgroundspeed * 0.666, 3))
+			pl:SetPlaybackRate(math_min(len2d / maxseqgroundspeed * 0.5, 3))
 		end
 	else
 		pl:SetPlaybackRate(1)
@@ -197,89 +180,55 @@ function CLASS:DoAnimationEvent(pl, event, data)
 	end
 end
 
-function CLASS:DoesntGiveFear(pl)
-	return pl.FeignDeath and pl.FeignDeath:IsValid()
-end
-
 if SERVER then
-	function CLASS:AltUse(pl)
-		pl:StartFeignDeath()
-	end
-
 	function CLASS:ProcessDamage(pl, dmginfo)
+		if pl.EradiVived then return end
+
 		local damage = dmginfo:GetDamage()
-		if damage >= 70 or damage < pl:Health() then return end
+		if damage >= 80 or damage < pl:Health() then return end
 
 		local attacker, inflictor = dmginfo:GetAttacker(), dmginfo:GetInflictor()
 		if attacker == pl or not attacker:IsPlayer() or inflictor.IsMelee or inflictor.NoReviveFromKills then return end
 
-		local hitgroup = pl:LastHitGroup()
-		if pl:WasHitInHead() or pl:GetStatus("shockdebuff") or hitgroup == HITGROUP_LEFTLEG or hitgroup == HITGROUP_RIGHTLEG then return end
+		if pl:WasHitInHead() or pl:GetStatus("shockdebuff") then return end
 
 		local dmgtype = dmginfo:GetDamageType()
 		if bit_band(dmgtype, DMG_ALWAYSGIB) ~= 0 or bit_band(dmgtype, DMG_BURN) ~= 0 or bit_band(dmgtype, DMG_CRUSH) ~= 0 then return end
 
-		if pl.FeignDeath and pl.FeignDeath:IsValid() then return end
-
 		if CurTime() < (pl.NextZombieRevive or 0) then return end
-		pl.NextZombieRevive = CurTime() + 3
+		pl.NextZombieRevive = CurTime() + 4.25
 
 		dmginfo:SetDamage(0)
 		pl:SetHealth(10)
 
 		local status = pl:GiveStatus("revive_slump")
 		if status then
-			status:SetReviveTime(CurTime() + 2.25)
-			status:SetReviveHeal(10)
+			status:SetReviveTime(CurTime() + 3)
+			status:SetReviveAnim(3.15)
+			status:SetReviveHeal(130)
+
+			pl.EradiVived = true
 		end
 
 		return true
 	end
 
-	function CLASS:ReviveCallback(pl, attacker, dmginfo)
-		if not pl:ShouldReviveFrom(dmginfo) then return false end
-
-		local classtable = math_random(3) == 3 and GAMEMODE.ZombieClasses["Zombie Legs"] or GAMEMODE.ZombieClasses["Zombie Torso"]
-		if classtable then
-			pl:RemoveStatus("overridemodel", false, true)
-			local deathclass = pl.DeathClass or pl:GetZombieClass()
-			pl:SetZombieClass(classtable.Index)
-			pl:DoHulls(classtable.Index, TEAM_UNDEAD)
-			pl.DeathClass = deathclass
-
-			pl:EmitSound("physics/flesh/flesh_bloody_break.wav", 100, 75)
-
-			if classtable == GAMEMODE.ZombieClasses["Zombie Torso"] then
-				local ent = ents.Create("prop_dynamic_override")
-				if ent:IsValid() then
-					ent:SetModel(Model("models/Zombie/Classic_legs.mdl"))
-					ent:SetPos(pl:GetPos())
-					ent:SetAngles(pl:GetAngles())
-					ent:Spawn()
-					ent:Fire("kill", "", 1.5)
-				end
-			end
-
-			pl:Gib()
-			pl.Gibbed = nil
-
-			timer.Simple(0, function()
-				if pl:IsValid() then
-					pl:SecondWind()
-				end
-			end)
-
-			return true
-		end
-
-		return false
-	end
-
-	function CLASS:OnSecondWind(pl)
-		pl:EmitSound("npc/zombie/zombie_voice_idle"..math_random(14)..".wav", 100, 85)
+	function CLASS:OnSpawned(pl)
+		pl:CreateAmbience("eradicatorambience")
+		pl.EradiVived = false
 	end
 end
 
-if CLIENT then
-	CLASS.Icon = "zombiesurvival/killicons/zombie"
+if not CLIENT then return end
+
+CLASS.Icon = "zombiesurvival/killicons/poisonzombie"
+CLASS.IconColor = Color(66, 0, 0)
+
+local matSkin = Material("Models/charple/charple4_sheet.vtf")
+function CLASS:PrePlayerDrawOverrideModel(pl)
+	render.ModelMaterialOverride(matSkin)
+end
+
+function CLASS:PostPlayerDrawOverrideModel(pl)
+	render.ModelMaterialOverride(nil)
 end

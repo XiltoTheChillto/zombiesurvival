@@ -4,7 +4,7 @@ CLASS.Description = "description_eradicator"
 CLASS.Help = "controls_eradicator"
 
 CLASS.Wave = 6 / 16
-
+CLASS.BetterVersion = "Heavy Eradicator"
 CLASS.Health = 650
 CLASS.Speed = 150
 

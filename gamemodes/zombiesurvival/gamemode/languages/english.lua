@@ -323,13 +323,15 @@ LANGUAGE.class_extinctioncrab						= "Extinction Crab"
 LANGUAGE.class_uoverkiller							= "Undead Overkiller"
 LANGUAGE.class_madhowler							= "Mad Howler"
 LANGUAGE.class_deadlylacerator						= "Deadly Lacerator"
-LANGUAGE.class_stronglacer							= "Strong Lacerator"
+LANGUAGE.class_stronglacerator							= "Strong Lacerator"
 LANGUAGE.class_deadlyarmoredlacerator				= "Deadly Armored Lacerator"
 LANGUAGE.class_deadlyheavyamoredlacerator			= "Deadly Heavy Armored Lacerator"
 LANGUAGE.class_agile_lacerator						= "Agile Lacerator"
 LANGUAGE.class_blocker								= "Blocker"
 LANGUAGE.class_undeadsoldier						= "Undead Soldier"
 LANGUAGE.class_undeadfighter						= "Undead Fighter"
+LANGUAGE.class_dangzombie							= "Dangerous Zombie"
+LANGUAGE.class_heavyeradicator						= "Heavy Eradicator"
 
 
 -- Class descriptions

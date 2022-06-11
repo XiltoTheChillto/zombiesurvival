@@ -30,7 +30,7 @@ SWEP.UseHands = true
 SWEP.BoxPhysicsMin = Vector(-0.5764, -2.397225, -20.080572) * SWEP.ModelScale
 SWEP.BoxPhysicsMax = Vector(0.70365, 2.501825, 19.973375) * SWEP.ModelScale
 
-SWEP.MeleeDamage = 286
+SWEP.MeleeDamage = 200
 SWEP.MeleeRange = 70
 SWEP.MeleeSize = 1
 SWEP.Primary.Delay = 1.4
