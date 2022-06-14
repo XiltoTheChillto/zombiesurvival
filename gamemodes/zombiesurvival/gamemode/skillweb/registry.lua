@@ -1299,11 +1299,11 @@ GM:AddSkill(SKILL_TEST, "Resupply cooldown I", GOOD.."-10% Resupply delay", -6, 
 GM:AddSkillModifier(SKILL_TEST, SKILLMOD_RESUPPLY_DELAY_MUL, -0.1)
 
 
-GM:AddSkill(SKILL_TEST2, "Resupply cooldown II", GOOD.."-20% Resupply delay", -6, 9, {SKILL_TEST3}, TREE_SPEEDTREE)
-GM:AddSkillModifier(SKILL_TEST2, SKILLMOD_RESUPPLY_DELAY_MUL, -0.2)
+GM:AddSkill(SKILL_TEST2, "Resupply cooldown II", GOOD.."-15% Resupply delay", -6, 9, {SKILL_TEST3}, TREE_SPEEDTREE)
+GM:AddSkillModifier(SKILL_TEST2, SKILLMOD_RESUPPLY_DELAY_MUL, -0.15)
 
-GM:AddSkill(SKILL_TEST3, "Resupply cooldown III", GOOD.."-30% Resupply delay", -6, 10, {}, TREE_SPEEDTREE)
-GM:AddSkillModifier(SKILL_TEST3, SKILLMOD_RESUPPLY_DELAY_MUL, -0.35)
+GM:AddSkill(SKILL_TEST3, "Resupply cooldown III", GOOD.."-25% Resupply delay", -6, 10, {}, TREE_SPEEDTREE)
+GM:AddSkillModifier(SKILL_TEST3, SKILLMOD_RESUPPLY_DELAY_MUL, -0.25)
 
 -- Arsenal discount skills
 
@@ -1311,12 +1311,12 @@ SKILL_ARSDISC1 = 450
 SKILL_ARSDISC2 = 451
 SKILL_ARSDISC3 = 452
 
-GM:AddSkill(SKILL_ARSDISC1, "Arsenal Discount I",GOOD.."8% Arsenal discount",-6,11,{},TREE_SPEEDTREE)
-GM:AddSkill(SKILL_ARSDISC2, "Arsenal Discount II",GOOD.."12% Arsenal discount",-6,13,{},TREE_SPEEDTREE)
-GM:AddSkill(SKILL_ARSDISC3, "Arsenal Discount III",GOOD.."15% Arsenal discount",-2,14,{},TREE_SPEEDTREE)
-GM:AddSkillModifier(SKILL_ARSDISC1, SKILLMOD_ARSENAL_DISCOUNT, -0.08)
-GM:AddSkillModifier(SKILL_ARSDISC2, SKILLMOD_ARSENAL_DISCOUNT, -0.12)
-GM:AddSkillModifier(SKILL_ARSDISC3, SKILLMOD_ARSENAL_DISCOUNT, -0.15)
+GM:AddSkill(SKILL_ARSDISC1, "Arsenal Discount I",GOOD.."7% Arsenal discount",-6,11,{},TREE_SPEEDTREE)
+GM:AddSkill(SKILL_ARSDISC2, "Arsenal Discount II",GOOD.."9% Arsenal discount",-6,13,{},TREE_SPEEDTREE)
+GM:AddSkill(SKILL_ARSDISC3, "Arsenal Discount III",GOOD.."14% Arsenal discount",-2,14,{},TREE_SPEEDTREE)
+GM:AddSkillModifier(SKILL_ARSDISC1, SKILLMOD_ARSENAL_DISCOUNT, -0.07)
+GM:AddSkillModifier(SKILL_ARSDISC2, SKILLMOD_ARSENAL_DISCOUNT, -0.09)
+GM:AddSkillModifier(SKILL_ARSDISC3, SKILLMOD_ARSENAL_DISCOUNT, -0.14)
 
 
 -- Bonus point skills
@@ -1352,14 +1352,14 @@ SKILL_CSPEED3 = 692
 SKILL_CSPEED4 = 693
 
 
-GM:AddSkill(SKILL_CSPEED1, "Speed Boost I", GOOD.."+10 Movement speed", -2,8, {SKILL_NONE,SKILL_CSPEED2}, TREE_SPEEDTREE)
-GM:AddSkill(SKILL_CSPEED2, "Speed Boost II", GOOD.."+10 Movement speed", -2,9, {SKILL_CSPEED3}, TREE_SPEEDTREE)
-GM:AddSkill(SKILL_CSPEED3, "Speed Boost III", GOOD.."+15 Movement speed", -2,10, {SKILL_CSPEED4}, TREE_SPEEDTREE)
-GM:AddSkill(SKILL_CSPEED4, "Speed Boost IV", GOOD.."+15 Movement speed", -2,11, {}, TREE_SPEEDTREE)
-GM:AddSkillModifier(SKILL_CSPEED1, SKILLMOD_SPEED, 10)
-GM:AddSkillModifier(SKILL_CSPEED2, SKILLMOD_SPEED, 10)
-GM:AddSkillModifier(SKILL_CSPEED3, SKILLMOD_SPEED, 15)
-GM:AddSkillModifier(SKILL_CSPEED4, SKILLMOD_SPEED, 15)
+GM:AddSkill(SKILL_CSPEED1, "Speed Boost I", GOOD.."+5 Movement speed", -2,8, {SKILL_NONE,SKILL_CSPEED2}, TREE_SPEEDTREE)
+GM:AddSkill(SKILL_CSPEED2, "Speed Boost II", GOOD.."+5 Movement speed", -2,9, {SKILL_CSPEED3}, TREE_SPEEDTREE)
+GM:AddSkill(SKILL_CSPEED3, "Speed Boost III", GOOD.."+10 Movement speed", -2,10, {SKILL_CSPEED4}, TREE_SPEEDTREE)
+GM:AddSkill(SKILL_CSPEED4, "Speed Boost IV", GOOD.."+10 Movement speed", -2,11, {}, TREE_SPEEDTREE)
+GM:AddSkillModifier(SKILL_CSPEED1, SKILLMOD_SPEED, 5)
+GM:AddSkillModifier(SKILL_CSPEED2, SKILLMOD_SPEED, 5)
+GM:AddSkillModifier(SKILL_CSPEED3, SKILLMOD_SPEED, 10)
+GM:AddSkillModifier(SKILL_CSPEED4, SKILLMOD_SPEED, 10)
 
 -- Health
 SKILL_CHP1 = 694
@@ -1370,18 +1370,18 @@ SKILL_CHP5 =  698
 
 GM:AddSkill(SKILL_CHP1, "Health Boost I", GOOD.."+15 Health", 0,7,{SKILL_NONE,SKILL_CHP2},TREE_SPEEDTREE)
 GM:AddSkill(SKILL_CHP2, "Health Boost II", GOOD.."+25 Health\n"..GOOD.."+15% Healing received", 0,8,{SKILL_CHP3},TREE_SPEEDTREE)
-GM:AddSkill(SKILL_CHP3, "Health Boost III", GOOD.."+25 Health\n"..GOOD.."+35% Healing received", 0,9,{SKILL_CHP4},TREE_SPEEDTREE)
+GM:AddSkill(SKILL_CHP3, "Health Boost III", GOOD.."+25 Health\n"..GOOD.."+25% Healing received", 0,9,{SKILL_CHP4},TREE_SPEEDTREE)
 GM:AddSkill(SKILL_CHP4, "Health Boost IV", GOOD.."+35 Health", 0,10,{SKILL_CHP5},TREE_SPEEDTREE)
-GM:AddSkill(SKILL_CHP5, "Juggernaut", GOOD.."+800 Health\n"..GOOD.."+45% Melee damage resistance\n"..GOOD.."-100% Low Health slow intensity\n"..BAD.."-150 Movement speed\n"..BAD.."-50% Jump power", 0,11,{},TREE_SPEEDTREE)
+GM:AddSkill(SKILL_CHP5, "Juggernaut", GOOD.."+800 Health\n"..GOOD.."+40% Melee damage resistance\n"..GOOD.."-100% Low Health slow intensity\n"..BAD.."-160 Movement speed\n"..BAD.."-50% Jump power", 0,11,{},TREE_SPEEDTREE)
 GM:AddSkillModifier(SKILL_CHP1, SKILLMOD_HEALTH, 15)
 GM:AddSkillModifier(SKILL_CHP2, SKILLMOD_HEALTH, 25)
 GM:AddSkillModifier(SKILL_CHP3, SKILLMOD_HEALTH, 25)
 GM:AddSkillModifier(SKILL_CHP3, SKILLMOD_HEALING_RECEIVED, 0.15)
-GM:AddSkillModifier(SKILL_CHP4, SKILLMOD_HEALING_RECEIVED, 0.35)
+GM:AddSkillModifier(SKILL_CHP4, SKILLMOD_HEALING_RECEIVED, 0.25)
 GM:AddSkillModifier(SKILL_CHP4, SKILLMOD_HEALTH, 35)
 GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_HEALTH, 800)
-GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_SPEED, -150)
-GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_MELEE_DAMAGE_TAKEN_MUL, -0.45)
+GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_SPEED, -160)
+GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_MELEE_DAMAGE_TAKEN_MUL, -0.40)
 GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_JUMPPOWER_MUL, -0.5)
 GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_LOW_HEALTH_SLOW_MUL, -1)
 GM:AddSkillModifier(SKILL_CHP5, SKILLMOD_AIM_SHAKE_MUL, -0.75)
@@ -1404,7 +1404,7 @@ GM:AddSkill(SKILL_MELEE5, "Melee V", GOOD.."+5% Melee damage\n"..GOOD.."-10% Mel
 GM:AddSkillModifier(SKILL_MELEE1, SKILLMOD_MELEE_DAMAGE_MUL, 0.10)
 GM:AddSkillModifier(SKILL_MELEE2, SKILLMOD_MELEE_DAMAGE_MUL, 0.10)
 GM:AddSkillModifier(SKILL_MELEE3, SKILLMOD_MELEE_DAMAGE_MUL, 0.10)
-GM:AddSkillModifier(SKILL_MELEE4, SKILLMOD_MELEE_DAMAGE_MUL, 0.5)
+GM:AddSkillModifier(SKILL_MELEE4, SKILLMOD_MELEE_DAMAGE_MUL, 0.05)
 GM:AddSkillModifier(SKILL_MELEE4, SKILLMOD_MELEE_RANGE_MUL, 0.15)
 GM:AddSkillModifier(SKILL_MELEE4, SKILLMOD_MELEE_SWING_DELAY_MUL, -0.10)
 GM:AddSkillModifier(SKILL_MELEE5, SKILLMOD_MELEE_DAMAGE_MUL, 0.05)

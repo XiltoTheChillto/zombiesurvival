@@ -12,7 +12,7 @@ CLASS.CanTaunt = true
 
 CLASS.Points = CLASS.Health/GM.HumanoidZombiePointRatio
 
-CLASS.SWEP = "weapon_zs_eradicator"
+CLASS.SWEP = "weapon_zs_heavyeradicator"
 
 CLASS.Model = Model("models/player/zombie_classic_hbfix.mdl")
 CLASS.OverrideModel = Model("models/Zombie/Poison.mdl")

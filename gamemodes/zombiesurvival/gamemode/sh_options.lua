@@ -321,7 +321,7 @@ GM:AddPointShopItem("uzi",				ITEMCAT_GUNS,			90,				"weapon_zs_uzi")
 GM:AddPointShopItem("annabelle",		ITEMCAT_GUNS,			90,				"weapon_zs_annabelle")
 GM:AddPointShopItem("inquisitor",		ITEMCAT_GUNS,			90,				"weapon_zs_inquisitor")
 GM:AddPointShopItem("amigo",			ITEMCAT_GUNS,			90,				"weapon_zs_amigo")
-GM:AddPointShopItem("hurricane",		ITEMCAT_GUNS,			90,				"weapon_zs_hurricane")
+GM:AddPointShopItem("hurricane",		ITEMCAT_OPGUNS,			500,				"weapon_zs_hurricane")
 -- Tier 3
 GM:AddPointShopItem("deagle",			ITEMCAT_GUNS,			250,				"weapon_zs_deagle")
 GM:AddPointShopItem("tempest",			ITEMCAT_GUNS,			250,				"weapon_zs_tempest")
@@ -485,6 +485,7 @@ GM:AddPointShopItem("antidote",			ITEMCAT_TOOLS,			30,				"weapon_zs_antidotesho
 item.SkillRequirement = SKILL_U_ANTITODESHOT
 GM:AddPointShopItem("medrifle",			ITEMCAT_TOOLS,			55,				"weapon_zs_medicrifle")
 GM:AddPointShopItem("healray",			ITEMCAT_TOOLS,			125,			"weapon_zs_healingray")
+GM:AddPointShopItem("heavyassaultturret",	ITEMCAT_DEPLOYABLES,			650,			"weapon_zs_gunturret_heavyassault",	nil,							nil,									nil,											function(pl) pl:GiveEmptyWeapon("weapon_zs_gunturret_heavyassault") pl:GiveAmmo(1, "combinecannon") end)
 
 -- Tier 1
 GM:AddPointShopItem("cutlery",			ITEMCAT_TRINKETS,		10,				"trinket_cutlery").SubCategory =								ITEMSUBCAT_TRINKETS_DEFENSIVE
@@ -519,7 +520,6 @@ GM:AddPointShopItem("biocleanser",		ITEMCAT_TRINKETS,		15,				"trinket_biocleans
 GM:AddPointShopItem("necrosense",		ITEMCAT_TRINKETS,		15,				"trinket_necrosense").SubCategory =								ITEMSUBCAT_TRINKETS_SPECIAL
 GM:AddPointShopItem("blueprintsi",		ITEMCAT_TRINKETS,		15,				"trinket_blueprintsi").SubCategory =							ITEMSUBCAT_TRINKETS_SUPPORT
 GM:AddPointShopItem("processor",		ITEMCAT_TRINKETS,		15,				"trinket_processor").SubCategory =								ITEMSUBCAT_TRINKETS_SUPPORT
-GM:AddPointShopItem("acqmanifest",		ITEMCAT_TRINKETS,		15,				"trinket_acqmanifest").SubCategory =							ITEMSUBCAT_TRINKETS_SUPPORT
 GM:AddPointShopItem("mainsuite",		ITEMCAT_TRINKETS,		15,				"trinket_mainsuite").SubCategory =								ITEMSUBCAT_TRINKETS_SUPPORT
 -- Tier 3
 --GM:AddPointShopItem("climbinggear",	ITEMCAT_TRINKETS,		30,				"trinket_climbinggear").SubCategory =							ITEMSUBCAT_TRINKETS_PERFORMANCE
@@ -551,7 +551,6 @@ GM:AddPointShopItem("eodvest",			ITEMCAT_TRINKETS,		50,				"trinket_eodvest").Su
 GM:AddPointShopItem("composite",		ITEMCAT_TRINKETS,		50,				"trinket_composite").SubCategory =								ITEMSUBCAT_TRINKETS_DEFENSIVE
 GM:AddPointShopItem("arsenalpack",		ITEMCAT_TRINKETS,		50,				"trinket_arsenalpack").SubCategory =							ITEMSUBCAT_TRINKETS_SUPPORT
 GM:AddPointShopItem("resupplypack",		ITEMCAT_TRINKETS,		50,				"trinket_resupplypack").SubCategory =							ITEMSUBCAT_TRINKETS_SUPPORT
-GM:AddPointShopItem("promanifest",		ITEMCAT_TRINKETS,		50,				"trinket_promanifest").SubCategory =							ITEMSUBCAT_TRINKETS_SUPPORT
 GM:AddPointShopItem("opsmatrix",		ITEMCAT_TRINKETS,		50,				"trinket_opsmatrix").SubCategory =								ITEMSUBCAT_TRINKETS_SUPPORT
 -- Tier 5
 GM:AddPointShopItem("supasm",			ITEMCAT_TRINKETS,		70,				"trinket_supasm").SubCategory =									ITEMSUBCAT_TRINKETS_OFFENSIVE
@@ -794,10 +793,11 @@ GM:AddPointShopItem("advmedkit",			ITEMCAT_TOOLS,	300,				"weapon_zs_advmedkit")
 
 -- ammo
 GM:AddPointShopItem("barricadeammo",ITEMCAT_AMMO,30,nil,"2 barricade ammo",nil,"ammo_sniper",function(pl) pl:GiveAmmo(2, "sniperround", true) end)
-
+-- TIER 2 CUSTOM
+GM:AddPointShopItem("flawler",ITEMCAT_GUNS, 100, "weapon_zs_flawler")
 -- TIER 3 CUSTOM
 GM:AddPointShopItem("advowen", ITEMCAT_GUNS, 300, "weapon_zs_advowen")
-GM:AddPointShopItem("thrower", ITEMCAT_GUNS, 300, "weapon_zs_thrower")
+GM:AddPointShopItem("thrower", ITEMCAT_GUNS, 100, "weapon_zs_thrower") -- Changed to tier 2
 GM:AddPointShopItem("z9999", ITEMCAT_GUNS, 275, "weapon_zs_z9999")
 -- TIER 4 Custom
 GM:AddPointShopItem("sodb", ITEMCAT_GUNS, 900 , "weapon_zs_sodb")

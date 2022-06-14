@@ -11,9 +11,9 @@ SWEP.ShowViewModel = false
 SWEP.ShowWorldModel = false
 SWEP.UseHands = true
 
-SWEP.Primary.Damage = 24
+SWEP.Primary.Damage = 45
 SWEP.Primary.NumShots = 1
-SWEP.Primary.Delay = 0.22
+SWEP.Primary.Delay = 0.25
 
 SWEP.Primary.ClipSize = 150
 SWEP.Primary.Automatic = true
@@ -32,12 +32,12 @@ SWEP.MaxStock = 2
 
 GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_MAX_SPREAD, -0.769)
 GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_MIN_SPREAD, -0.656)
-GAMEMODE:AddNewRemantleBranch(SWEP, 1, "'Citadel' Minicannon", "Uses 3 ammo per shot, shoots slower, but more damage and accuracy", function(wept)
+GAMEMODE:AddNewRemantleBranch(SWEP, 1, "'Citadel' Minicannon", "Uses 3 ammo per shot, but more damage and accuracy", function(wept)
 	wept.Primary.Damage = wept.Primary.Damage * 2.5
 	wept.ConeMin = wept.ConeMin * 0.5
 	wept.ConeMax = wept.ConeMax * 0.5
-	wept.Primary.Delay = wept.Primary.Delay * 2.65
 	wept.Recoil = 4
+
 
 	wept.TakeAmmo = function(self)
 		self:TakeCombinedPrimaryAmmo(3)
@@ -173,4 +173,77 @@ function SWEP:CheckSpool()
 		self:SetSpool(math.max(0, self:GetSpool() - FrameTime() * 0.36))
 		self.ChargeSound:Stop()
 	end
+end
+
+
+
+
+
+
+
+GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_MAX_SPREAD, 0)
+GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_MIN_SPREAD, 0)
+GAMEMODE:AddNewRemantleBranch(SWEP, 2, "'flying machine", "Uses 10 ammo per shot, and deal least damage , But let the user fly across the sky", function(wept)
+	wept.Knockback = 30
+	wept.Primary.Damage = wept.Primary.Damage
+	wept.Primary.Delay = wept.Primary.Delay * -0.5
+
+	wept.TakeAmmo = function(self)
+		self:TakeCombinedPrimaryAmmo(10)
+	end
+
+	wept.EmitFireSound = function(self)
+		self:EmitSound("weapons/m249/m249-1.wav", 75, math.random(47, 49), 0.7)
+		self:EmitSound("weapons/m4a1/m4a1_unsil-1.wav", 75, math.random(85, 87), 0.65, CHAN_WEAPON + 20)
+	end
+end)
+
+SWEP.WalkSpeed = SPEED_SLOWEST * 0.75
+SWEP.FireAnimSpeed = 0.3
+
+function SWEP:Initialize()
+	self.BaseClass.Initialize(self)
+
+	self.ChargeSound = CreateSound(self, "ambient/machines/spin_loop.wav")
+end
+function SWEP:TakeAmmo()
+	self:TakeCombinedPrimaryAmmo(1)
+end
+
+function SWEP:CanPrimaryAttack()
+	if self:GetPrimaryAmmoCount() <= 0 then
+		return false
+	end
+
+	if self:GetOwner():IsHolding() or self:GetOwner():GetBarricadeGhosting() then return false end
+
+	return self:GetNextPrimaryFire() <= CurTime()
+end
+
+function SWEP:CanSecondaryAttack()
+	if self:GetOwner():IsHolding() or self:GetOwner():GetBarricadeGhosting() then return false end
+
+	return self:GetNextPrimaryFire() <= CurTime()
+end
+
+function SWEP:GetWalkSpeed()
+	return self.BaseClass.GetWalkSpeed(self) * (self:GetSpooling() and 0.5 or 1)
+end
+
+function SWEP:EmitFireSound()
+	self:EmitSound("weapons/m249/m249-1.wav", 75, math.random(86, 89), 0.65)
+	self:EmitSound("weapons/m4a1/m4a1_unsil-1.wav", 75, math.random(122, 125), 0.6, CHAN_WEAPON + 20)
+end
+
+function SWEP:Reload()
+end
+
+function SWEP:Holster()
+	self.ChargeSound:Stop()
+
+	return self.BaseClass.Holster(self)
+end
+
+function SWEP:OnRemove()
+	self.ChargeSound:Stop()
 end

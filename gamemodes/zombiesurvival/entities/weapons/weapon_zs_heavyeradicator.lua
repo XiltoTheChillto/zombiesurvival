@@ -10,6 +10,14 @@ SWEP.SlowDownScale = 0
 
 SWEP.AlertDelay = 3.5
 
+function SWEP:MeleeHit(ent, trace, damage, forcescale)
+	if not ent:IsPlayer() then
+		damage = self.MeleeDamageVsProps
+	end
+
+	self.BaseClass.MeleeHit(self, ent, trace, damage, forcescale)
+end
+
 function SWEP:Reload()
 	self:SecondaryAttack()
 end

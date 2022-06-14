@@ -74,7 +74,7 @@ SWEP.ConeMin = 2.5
 
 SWEP.WalkSpeed = SPEED_NORMAL
 
-SWEP.Tier = 2
+SWEP.Tier = 1
 
 SWEP.PointsMultiplier = GAMEMODE.PulsePointsMultiplier
 

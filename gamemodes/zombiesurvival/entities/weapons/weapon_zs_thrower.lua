@@ -28,7 +28,7 @@ SWEP.CSMuzzleFlashes = false
 
 SWEP.ReloadSound = Sound("Weapon_SMG1.Reload")
 SWEP.Primary.Sound = Sound("Weapon_AR2.NPC_Single")
-SWEP.Primary.Damage = 18
+SWEP.Primary.Damage = 28
 SWEP.Primary.NumShots = 2
 SWEP.Primary.Delay = 0.15
 
@@ -45,7 +45,7 @@ SWEP.FireAnimSpeed = 0.55
 
 SWEP.ConeMax = 4.5
 SWEP.ConeMin = 2.5
-SWEP.Tier = 3
+SWEP.Tier = 2
 SWEP.IronSightsPos = Vector(-6.425, 5, 1.02)
 
 GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_FIRE_DELAY, -0.015)
