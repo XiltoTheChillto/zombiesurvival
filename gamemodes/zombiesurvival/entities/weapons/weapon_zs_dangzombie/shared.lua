@@ -16,6 +16,14 @@ SWEP.MeleeDamageType = DMG_SLASH
 
 SWEP.AlertDelay = 2.5
 
+function SWEP:MeleeHit(ent, trace, damage, forcescale)
+	if not ent:IsPlayer() then
+		damage = self.MeleeDamageVsProps
+	end
+
+	self.BaseClass.MeleeHit(self, ent, trace, damage, forcescale)
+end
+
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
 SWEP.Primary.Automatic = true

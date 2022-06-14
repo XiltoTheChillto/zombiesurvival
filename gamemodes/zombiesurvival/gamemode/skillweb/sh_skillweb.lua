@@ -1,11 +1,12 @@
 include("registry.lua")
 
+
 local xpMultiplier = 2
 
 -- These are inverse functions of eachother!
 function GM:LevelForXP(xp)
     --return math.floor(1 + 1 * math.sqrt(xp))
-    return math.floor(1 + 0.25 * math.sqrt(xp / xpMultiplier))
+    return math.floor(1 + math.sqrt(xp / xpMultiplier) / 4)
 end
 
 function GM:XPForLevel(level)
