@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 SWEP.Base = "weapon_zs_baseshotgun"
 
-SWEP.PrintName = "Gunner"
+SWEP.PrintName = "Maniac Assasin"
 SWEP.Description = "This rifle loads rounds individually, at the cost of being not perfectly accurate."
 
 if CLIENT then

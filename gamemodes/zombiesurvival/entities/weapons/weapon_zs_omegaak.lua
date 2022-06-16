@@ -1,6 +1,6 @@
 AddCSLuaFile()
 
-SWEP.PrintName = "'OMEGA' AK Assault Rifle"
+SWEP.PrintName = "'Hyper' AK Assault Rifle"
 SWEP.Description = "Reliable assault rifle with a very fast reload speed. Not quite as accurate as other assault rifles, but still precise enough nonetheless."
 
 SWEP.Slot = 2

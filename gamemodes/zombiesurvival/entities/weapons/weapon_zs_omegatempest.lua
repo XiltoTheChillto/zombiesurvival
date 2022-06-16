@@ -1,7 +1,7 @@
 AddCSLuaFile()
 DEFINE_BASECLASS("weapon_zs_base")
 
-SWEP.PrintName = "'Extreme Tempest' Burst Pistol"
+SWEP.PrintName = "'Furious Tempest' Burst Pistol"
 SWEP.Description = "Fires in bursts and uses ammunition extremely quickly."
 SWEP.Slot = 1
 SWEP.SlotPos = 0

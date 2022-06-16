@@ -1,6 +1,6 @@
 --CLASS.Base = "ghoul"
 
-CLASS.Name = "Gunner"
+CLASS.Name = "Maniac Assasin"
 CLASS.TranslationName = "class_gunner"
 --CLASS.Description = "description_chilled_ghoul"
 --CLASS.Help = "controls_chilled_ghoul"
@@ -11,7 +11,7 @@ CLASS.TranslationName = "class_gunner"
 --CLASS.Unlocked = true
 CLASS.Boss = true
 
-CLASS.Health = 3720
+CLASS.Health = 4720
 CLASS.Speed = 200
 
 CLASS.Points = CLASS.Health/GM.HumanoidZombiePointRatio

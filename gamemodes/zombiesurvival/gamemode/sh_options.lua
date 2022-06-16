@@ -45,7 +45,7 @@ ITEMSUBCAT_TRINKETS_SPECIAL = 6
 
 GM.ItemCategories = {
 	[ITEMCAT_GUNS] = "Guns",
-	[ITEMCAT_OPGUNS] = "OP Guns",
+	[ITEMCAT_OPGUNS] = "Empowered Guns",
 	[ITEMCAT_AMMO] = "Ammunition",
 	[ITEMCAT_MELEE] = "Melee",
 	[ITEMCAT_TOOLS] = "Tools",
@@ -53,7 +53,7 @@ GM.ItemCategories = {
 	[ITEMCAT_JUNK] = "Junk packs",
 	[ITEMCAT_TRINKETS] = "Trinkets",
 	[ITEMCAT_OTHER] = "Other",
-	[ITEMCAT_CUSTOMTRINKETS] = "Custom trinkets"	
+	[ITEMCAT_CUSTOMTRINKETS] = "Empowered trinkets"	
 }
 
 GM.ItemSubCategories = {
