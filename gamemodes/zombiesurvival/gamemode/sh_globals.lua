@@ -89,9 +89,9 @@ DEFAULT_MASS = 80
 DEFAULT_MODELSCALE = 1
 
 -- Humans can not carry OR drag anything heavier than this (in kg.)
-CARRY_MAXIMUM_MASS = 300
+CARRY_MAXIMUM_MASS = 400
 -- Humans can not carry anything with a volume more than this (OBBMins():Length() + OBBMaxs():Length()).
-CARRY_MAXIMUM_VOLUME = 150
+CARRY_MAXIMUM_VOLUME = 200
 -- Objects with more mass than this will be dragged instead of carried.
 CARRY_DRAG_MASS = 145
 -- Anything bigger than this is dragged regardless of mass.
@@ -107,7 +107,7 @@ GM.MaxArmDamage = 3
 GM.UtilityKey = IN_SPEED
 GM.MenuKey = IN_WALK -- I would use the spawn menu but it has no IN_ key assignment.
 
-GM.ArsenalCrateCommission = 0.08
+GM.ArsenalCrateCommission = 0.05
 
 GM.BaseDeploySpeed = 1 -- Put this back to 1 to increase the value of it
 
