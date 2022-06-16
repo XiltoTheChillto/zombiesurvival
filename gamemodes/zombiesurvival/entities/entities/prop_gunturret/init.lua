@@ -208,7 +208,7 @@ function ENT:Use(activator, caller)
 		if self:GetObjectOwner():IsValid() then
 			if activator:GetInfo("zs_nousetodeposit") == "0" then
 				local curammo = self:GetAmmo()
-				local togive = math.min(15, activator:GetAmmoCount(self.AmmoType), self.MaxAmmo - curammo)
+				local togive = math.min(50, activator:GetAmmoCount(self.AmmoType), self.MaxAmmo - curammo)
 				if togive > 0 then
 					self:SetAmmo(curammo + togive)
 					activator:RemoveAmmo(togive, self.AmmoType)

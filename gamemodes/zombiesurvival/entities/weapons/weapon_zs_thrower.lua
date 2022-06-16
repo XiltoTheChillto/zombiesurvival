@@ -28,9 +28,9 @@ SWEP.CSMuzzleFlashes = false
 
 SWEP.ReloadSound = Sound("Weapon_SMG1.Reload")
 SWEP.Primary.Sound = Sound("Weapon_AR2.NPC_Single")
-SWEP.Primary.Damage = 28
+SWEP.Primary.Damage = 22
 SWEP.Primary.NumShots = 2
-SWEP.Primary.Delay = 0.15
+SWEP.Primary.Delay = 0.17
 
 SWEP.Primary.ClipSize = 24
 SWEP.Primary.Automatic = true
