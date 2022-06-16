@@ -332,6 +332,7 @@ LANGUAGE.class_undeadsoldier						= "Undead Soldier"
 LANGUAGE.class_undeadfighter						= "Undead Fighter"
 LANGUAGE.class_dangzombie							= "Dangerous Zombie"
 LANGUAGE.class_heavyeradicator						= "Heavy Eradicator"
+LANGUAGE.class_arsonist								= "Arsonist"
 
 
 -- Class descriptions
@@ -400,6 +401,7 @@ LANGUAGE.description_uoverkiller					= "A burnt wizard wannabe skeleton hitting 
 LANGUAGE.description_agile_lacerator				= "A mutated version of the Lacerator. He has a ton of mobility and is very deadly fighting alone"
 LANGUAGE.description_blocker 						= "The blocker is way weaker than the shade but is still able to be extremely useful by setting up a shield that blocks human projectiles"
 LANGUAGE.description_undeadsoldier 					= "This zombie was previously a soldier but has fallen in the fight against the undead"
+LANGUAGE.description_arsonist						= "This zombie only has one goal in mind, to burn everything he sees in ashes"
 
 -- Class control schemes
 LANGUAGE.controls_zombie							= "> PRIMARY: Claws\n> SECONDARY: Scream\n> RELOAD: Moan\n> SPRINT: Feign death\n> ON FATAL HIT IN LEGS: Revive / Transform"
@@ -458,6 +460,7 @@ LANGUAGE.controls_eradicator						= "> PRIMARY: Claws\n> SECONDARY: Scream\n> ON
 LANGUAGE.controls_howler							= "> PRIMARY: Claws\n> SECONDARY: Howl\n> RELOAD: Moan"
 LANGUAGE.controls_extinctioncrab					= "> PRIMARY: Leap Attack\n> SECONDARY: Extinction Spore"
 LANGUAGE.controls_undeadsoldier						= "> PRIMARY: Shoot\n> SECONDARY: Use Ironsights\n>RELOAD: Reload"
+LANGUAGE.controls_arsonist							= "> PRIMARY: Throw fire bomb"
 
 -- The help file... Quite big! I wouldn't blame you if you didn't translate this part.
 LANGUAGE.help_cat_introduction						= "Introduction"

@@ -53,11 +53,10 @@ GAMEMODE:AddNewRemantleBranch(SWEP, 1, "'Flawler' Combat Rifle", "Loses automati
 	wept.ConeMax = wept.ConeMax * 0.7
 	wept.Primary.Automatic = false
 end)
-GAMEMODE:AddNewRemantleBranch(SWEP, 1, "'Flawler' Combat Rifle", "Loses automatic fire rate but shoots another bullet and deals a bit more damage", function(wept)
-	wept.Primary.Damage = wept.Primary.Damage * 1.2
+GAMEMODE:AddNewRemantleBranch(SWEP, 1, "'Flawler' Combat Rifle", "Loses fire rate but shoots another bullet and deals a bit more damage", function(wept)
+	wept.Primary.Damage = wept.Primary.Damage * 1.1
 	wept.Primary.Delay = wept.Primary.Delay * 2
 	wept.Primary.ClipSize = 20
-	wept.Primary.Automatic = false
 	wept.Primary.NumShots = 2
 end)
 
