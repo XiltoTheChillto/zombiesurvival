@@ -74,7 +74,7 @@ SWEP.UseHands = true
 SWEP.Primary.Sound = Sound("Weapon_Renegade.Single")
 SWEP.Primary.Damage = 5000
 SWEP.Primary.NumShots = 1
-SWEP.Primary.Delay = 1.1
+SWEP.Primary.Delay = 1.35
 
 SWEP.Primary.ClipSize = 10
 SWEP.Primary.Automatic = true
