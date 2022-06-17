@@ -1,10 +1,8 @@
 SWEP.Base = "weapon_zs_basemelee"
 
-SWEP.PrintName = "Kitchen Pack"
-SWEP.Description = "It's simply a pack of kitchen tools.\nVery useful for making barricades when no materials are around.\nNeeds something like a hammer and nails to keep the things in place."
+SWEP.PrintName = "Metal Pack"
+SWEP.Description = "It's simply a pack of metal junk.\nVery useful for making barricades when no materials are around.\nNeeds something like a hammer and nails to keep the things in place."
 
-SWEP.ViewModel = "models/weapons/c_aegiskit.mdl"
-SWEP.WorldModel = "models/props_wasteland/kitchen_shelf001a.mdl"
 SWEP.UseHands = true
 
 SWEP.AmmoIfHas = true
@@ -21,16 +19,16 @@ SWEP.Secondary.DefaultClip = 1
 SWEP.Secondary.Ammo = "dummy"
 SWEP.Secondary.Automatic = true
 SWEP.Secondary.Delay = 0.15
-
+SWEP.ViewModel = "models/weapons/c_aegiskit.mdl"
 SWEP.WalkSpeed = SPEED_NORMAL
 SWEP.FullWalkSpeed = SPEED_SLOWEST
 
 SWEP.JunkModels = {
-	Model("models/props_c17/FurnitureFridge001a.mdl"),
-	Model("models/props_interiors/refrigeratorDoor01a.mdl"),
-	Model("models/props_wasteland/kitchen_shelf002a.mdl"),
-	Model("models/props_wasteland/kitchen_shelf001a.mdl")
-	
+	Model("models/props_debris/metal_panel02a.mdl"),
+	Model("models/props_debris/metal_panel02a.mdl"),
+	Model("models/props_debris/metal_panel02a.mdl"),
+	Model("models/props_debris/metal_panel01a.mdl"),
+	Model("models/props_debris/metal_panel01a.mdl")
 }
 
 SWEP.HoldType = "physgun"

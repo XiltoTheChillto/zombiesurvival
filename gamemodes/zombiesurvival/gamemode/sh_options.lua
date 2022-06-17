@@ -29,11 +29,12 @@ ITEMCAT_OPGUNS = 2
 ITEMCAT_AMMO = 3
 ITEMCAT_MELEE = 4
 ITEMCAT_TOOLS = 5
-ITEMCAT_DEPLOYABLES = 6
-ITEMCAT_TRINKETS = 7
-ITEMCAT_OTHER = 8
-ITEMCAT_CUSTOMTRINKETS = 9
-ITEMCAT_JUNK = 10
+ITEMCAT_ADVTOOLS = 6
+ITEMCAT_DEPLOYABLES = 7
+ITEMCAT_JUNK = 8
+ITEMCAT_TRINKETS = 9
+ITEMCAT_CUSTOMTRINKETS = 10
+ITEMCAT_OTHER = 11
 
 
 ITEMSUBCAT_TRINKETS_DEFENSIVE = 1
@@ -45,15 +46,17 @@ ITEMSUBCAT_TRINKETS_SPECIAL = 6
 
 GM.ItemCategories = {
 	[ITEMCAT_GUNS] = "Guns",
-	[ITEMCAT_OPGUNS] = "OP Guns",
+	[ITEMCAT_OPGUNS] = "Empowered Guns",
 	[ITEMCAT_AMMO] = "Ammunition",
 	[ITEMCAT_MELEE] = "Melee",
 	[ITEMCAT_TOOLS] = "Tools",
+	[ITEMCAT_JUNK] = "Junk packs",
 	[ITEMCAT_DEPLOYABLES] = "Deployables",
 	[ITEMCAT_JUNK] = "Junk packs",
 	[ITEMCAT_TRINKETS] = "Trinkets",
 	[ITEMCAT_OTHER] = "Other",
-	[ITEMCAT_CUSTOMTRINKETS] = "Custom trinkets"	
+	[ITEMCAT_CUSTOMTRINKETS] = "Empowered trinkets",
+	[ITEMCAT_ADVTOOLS] = "Advanced Tools"
 }
 
 GM.ItemSubCategories = {
@@ -788,9 +791,9 @@ GM:AddPointShopItem("customboardpack",			ITEMCAT_JUNK,	30,				"weapon_zs_customb
 GM:AddPointShopItem("kitchenpack",			ITEMCAT_JUNK,	30,				"weapon_zs_kitchenpack")
 GM:AddPointShopItem("cratepack",			ITEMCAT_JUNK,	30,				"weapon_zs_cratepack")
 GM:AddPointShopItem("bedpack",			ITEMCAT_JUNK,	30,				"weapon_zs_bedpack")
-GM:AddPointShopItem("titaniumhammer",			ITEMCAT_TOOLS,	500,				"weapon_zs_titaniumhammer")
-GM:AddPointShopItem("advmedkit",			ITEMCAT_TOOLS,	300,				"weapon_zs_advmedkit")
-GM:AddPointShopItem("wipe",			ITEMCAT_TOOLS,	500,				"weapon_zs_wiper")
+GM:AddPointShopItem("titaniumhammer",			ITEMCAT_ADVTOOLS,	500,				"weapon_zs_titaniumhammer")
+GM:AddPointShopItem("advmedkit",			ITEMCAT_ADVTOOLS,	300,				"weapon_zs_advmedkit")
+GM:AddPointShopItem("wipe",			ITEMCAT_ADVTOOLS,	500,				"weapon_zs_wiper")
 
 
 -- ammo
@@ -815,6 +818,7 @@ GM:AddPointShopItem("omegabullethell",		ITEMCAT_OPGUNS,			9000,			"weapon_zs_ome
 GM:AddPointShopItem("stormsilencer",		ITEMCAT_OPGUNS,			9000,			"weapon_zs_stormsilencer")
 GM:AddPointShopItem("planker",		ITEMCAT_MELEE,			400,			"weapon_zs_planker")
 GM:AddPointShopItem("katana",		ITEMCAT_MELEE,			650,			"weapon_zs_katana")
+GM:AddPointShopItem("pstick",		ITEMCAT_GUNS,			2250,			"weapon_zs_pulsestick")
 --  KATANA MODEL	-	https://steamcommunity.com/sharedfiles/filedetails/?id=696591226&searchtext=katana
 GM:AddPointShopItem("superscythe",		ITEMCAT_MELEE,			1000,			"weapon_zs_superscythe")
 GM:AddPointShopItem("meatsmasher",		ITEMCAT_MELEE,			500,			"weapon_zs_meatsmasher")
@@ -829,7 +833,7 @@ GM:AddPointShopItem("pumpaction", ITEMCAT_GUNS, 2500 ,"weapon_zs_pumpaction")
 GM:AddPointShopItem("adanis", ITEMCAT_GUNS, 4500 ,"weapon_zs_adanis")
 GM:AddPointShopItem("hqjg", ITEMCAT_GUNS, 7200 ,"weapon_zs_hqjuggernaut")
 --Tier 7 Custom
-GM:AddPointShopItem("minigun",ITEMCAT_GUNS, 30000,"weapon_zs_minigun")
+GM:AddPointShopItem("minigun",ITEMCAT_GUNS, 20000,"weapon_zs_minigun")
 GM:AddPointShopItem("deadlyminigun",ITEMCAT_OPGUNS, 40000,"weapon_zs_deadlyminigun")
 GM:AddPointShopItem("gibber",ITEMCAT_OPGUNS, 50000,"weapon_zs_gibbermissile")
 GM:AddPointShopItem("erifle",ITEMCAT_OPGUNS, 35000,"weapon_zs_elephantrifle")

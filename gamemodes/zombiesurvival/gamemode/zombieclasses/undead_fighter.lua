@@ -35,7 +35,7 @@ CLASS.IconColor = Color(136, 136, 136)
 
 
 function CLASS:PrePlayerDraw(pl)
-	render.SetColorModulation(0.2, 0.5, 0.95)
+	render.SetColorModulation(0.53, 0.53, 0.53)
 end
 
 function CLASS:PostPlayerDraw(pl)

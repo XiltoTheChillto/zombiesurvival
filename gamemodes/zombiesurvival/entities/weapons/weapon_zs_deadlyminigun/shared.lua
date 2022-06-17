@@ -1,4 +1,4 @@
-SWEP.PrintName = "Deadly Minigun"
+SWEP.PrintName = "Heavy Minigun"
 SWEP.Description = "Incredibly heavy duty minigun. Takes time to spool. Hold right click to spool the gun without firing."
 
 SWEP.Base = "weapon_zs_base"

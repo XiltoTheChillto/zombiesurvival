@@ -1,6 +1,6 @@
 AddCSLuaFile()
 
-SWEP.PrintName = "Extreme 'Hunter' Rifle"
+SWEP.PrintName = "High Quality 'Hunter' Rifle"
 SWEP.Description = "Fires special large caliber rounds. The reloading time is slow but it packs a powerful punch."
 SWEP.Slot = 3
 SWEP.SlotPos = 0
