@@ -11,7 +11,7 @@ SWEP.ShowViewModel = false
 SWEP.ShowWorldModel = false
 SWEP.UseHands = true
 
-SWEP.Primary.Damage = 40
+SWEP.Primary.Damage = 34
 SWEP.Primary.NumShots = 3
 SWEP.Primary.Delay = 0.18
 

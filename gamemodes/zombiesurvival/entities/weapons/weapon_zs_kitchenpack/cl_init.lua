@@ -10,11 +10,11 @@ SWEP.ViewModelBoneMods = {
 }
 
 SWEP.VElements = {
-	["base"] = { type = "Model", model = "models/props_wasteland/kitchen_shelf001a.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 2.596, -6.753), angle = Angle(180, 66.623, -1.17), size = Vector(0.25, 0.25, 0.25), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+	["base"] = { type = "Model", model = "models/props_wasteland/kitchen_shelf001a.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 2.596, 0.753), angle = Angle(180, 126.623, -1.17), size = Vector(0.15, 0.15, 0.15), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
 }
 
 SWEP.WElements = {
-	["base"] = { type = "Model", model = "models/props_wasteland/kitchen_shelf001a.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 2.596, -6.753), angle = Angle(180, 66.623, -1.17), size = Vector(0.5, 0.5, 0.5), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+	["base"] = { type = "Model", model = "models/props_wasteland/kitchen_shelf001a.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 2.596, 0.753), angle = Angle(180, 126.623, -1.17), size = Vector(0.3, 0.3, 0.3), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
 }
 
 SWEP.Slot = 4
